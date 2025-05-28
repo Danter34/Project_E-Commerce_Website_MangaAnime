@@ -1,0 +1,35 @@
+﻿@model Atsumaru.Models.Product
+<div class="wrap">
+    <div>
+        <div class="info-sp" style="background-color:rgb(23, 23, 23);  border-radius: 20px; margin-top: 50px;">
+            <div class="sp">
+                <img style="width: 480px; height: 400px;" src="@Model.Image" alt="">
+            </div>
+            <div class="info">
+                <div style="display: flex; justify-content: space-between;">
+                    <h2 style="font-weight: bold; ">@Model.Price₫</h2>
+                </div>
+                <button style=" padding: 5px 10px; border-radius:10px ;width: 100%;">
+                    Thêm vào giỏ
+                </button>
+                <div><p>@Model.tag </p></div>
+                <p>
+                    @Model.Detail
+                </p>
+            </div>
+        </div>
+        <h4 style="font-weight:bold; font-size: 2rem;">Preview</h4>
+        <div class="slider-contai">
+            <button class="nav prev"><i class="fa-solid fa-angle-left"></i></button>
+            <div class="slide">
+                <div class="card"><img src="@Model.Image1" alt=""></div></a>
+                <div class="card"><img src="@Model.Image2" alt=""></div></a>
+                <div class="card"><img src="@Model.Image3" alt=""></div></a>
+                <div class="card"><img src="@Model.Image4" alt=""></div></a>
+                <div class="card"><img src="@Model.Image" alt=""></div></a>
+            </div>
+            <button class="nav next"><i class="fa-solid fa-angle-right"></i></button>
+        </div>
+    </div>
+   
+</div>

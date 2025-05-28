@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Atsumaru.Models.Product>
+<div class="banner">
+    <div class="slider1">
+        @foreach (var item in Model)
+        {
+            <div class="slide1">
+                <div class="one-piece-banner" style="background-image: url(@item.Image);">
+                    <div class="overlay"></div>
+                    <div class="content">
+                        <h1>@item.Name</h1>
+                        <div class="tags">@item.tag</div>
+                        <p>
+                            @item.Detail
+                        </p>
+                        <a asp-controller="Home" asp-action="Detail" asp-route-id="@item.Id"><button>More info</button></a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div class="wrap">
+    <h3>Hot updates</h3>
+    <div class="slider-contai">
+        <button class="nav prev"><i class="fa-solid fa-angle-left"></i></button>
+        <div class="slide">
+            @foreach (var item in ViewBag.HotUpdate as IEnumerable<Atsumaru.Models.Product>)
+            {
+                <a style="text-decoration: none;" asp-controller="Home" asp-action="Detail" asp-route-id="@item.Id"><div class="card"><img src="@item.Image" alt=""><p>@item.Name</p></div></a>
+
+            }
+           
+        </div>
+        <button class="nav next"><i class="fa-solid fa-angle-right"></i></button>
+    </div>
+    <h3>Top 10</h3>
+    <div class="slider-contai">
+        <button class="nav prev"><i class="fa-solid fa-angle-left"></i></button>
+        <div class="slide">
+            @foreach (var item in ViewBag.Top10 as IEnumerable<Atsumaru.Models.Product>)
+            {
+                <a style="text-decoration: none;" asp-controller="Home" asp-action="Detail" asp-route-id="@item.Id"><div class="card"><img src="@item.Image" alt=""><p>@item.Name</p></div></a>
+            }
+        </div>
+        <button class="nav next"><i class="fa-solid fa-angle-right"></i></button>
+    </div>
+    <h3>New product</h3>
+    <div class="slider-contai">
+        <button class="nav prev"><i class="fa-solid fa-angle-left"></i></button>
+        <div class="slide">
+            @foreach (var item in ViewBag.NewProduct as IEnumerable<Atsumaru.Models.Product>)
+            {
+                <a style="text-decoration: none;" asp-controller="Home" asp-action="Detail" asp-route-id="@item.Id"><div class="card"><img src="@item.Image" alt=""><p>@item.Name</p></div></a>
+            }
+        </div>
+        <button class="nav next"><i class="fa-solid fa-angle-right"></i></button>
+    </div>
+    <h3>Lastest updates</h3>
+    <div class="slider-contai">
+        <button class="nav prev"><i class="fa-solid fa-angle-left"></i></button>
+        <div class="slide">
+            @foreach (var item in ViewBag.LastUpdate as IEnumerable<Atsumaru.Models.Product>)
+            {
+                <a style="text-decoration: none;" asp-controller="Home" asp-action="Detail" asp-route-id="@item.Id"><div class="card"><img src="@item.Image" alt=""><p>@item.Name</p></div></a>
+            }
+        </div>
+        <button class="nav next"><i class="fa-solid fa-angle-right"></i></button>
+    </div>
+</div>

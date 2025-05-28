@@ -1,0 +1,48 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial,sans-serif;
+}
+.box{
+    background-color: rgb(23, 23, 23);
+    border-radius: 20px;
+    margin-top: 50px;
+}
+.box h4{
+    margin-top: 20px;
+    border-top: 1.5px solid rgb(255, 255, 255);
+    font-weight: bolder;
+    padding: 10px 20px;
+}
+.info-sp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.sp{
+    padding: 10px 20px;
+}
+.sp img{
+    height: 400px;
+}
+.watch-first img{
+    display: block; 
+    margin: 0 auto;
+    width: 1024px;
+    border-radius:10px;
+    height: 800px;
+}
+.sl{
+    font-weight: bolder;
+}
+.box button{
+    padding: 5px 10px;
+    border-radius:10px ;
+    width: 100%;
+}
+.mount input{
+    padding: 5px;
+    width: 50px;
+    margin-bottom: 10px;
+}

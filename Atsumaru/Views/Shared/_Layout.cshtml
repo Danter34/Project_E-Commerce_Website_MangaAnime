@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atsumaru</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="~/assets/css/styles.css">
+    <link rel="stylesheet" href="~/assets//css//ct-sp.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="head">
+            <div class="op">
+                <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" id="leftMenu" style="display: none;">
+                    <button onclick="closeLeftMenu()" class="w3-bar-item w3-button w3-large" > &times;</button>
+                    <a a asp-controller="Home" asp-action="Index" style="text-decoration: none;" class="w3-bar-item w3-button">Home</a>
+                    <div class="dropdown">
+                        <a href="#" class="w3-bar-item w3-button">Thể Loại <i class="fa-solid fa-caret-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#">Shounen</a>
+                            <a href="#">Seinen</a>
+                            <a href="#"> Kodomo</a>
+                            <a href="#">Shoujo</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <a href="#" class="w3-bar-item w3-button">Loại Truyện <i class="fa-solid fa-caret-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#">Manga</a>
+                            <a href="#">Manhua</a>
+                            <a href="#">Manhwua</a>
+                        </div>
+                    </div>
+                    <a href="#" class="w3-bar-item w3-button"><i class="fa-solid fa-cart-shopping"></i> Giỏ Hàng</a>
+                    <a href="#" class="w3-bar-item w3-button"><i class="fa-regular fa-heart"></i> Wishlist</a>
+                    <a href="#" class="w3-bar-item w3-button"><i class="fa-solid fa-user"></i> Login/Register</a>
+                </div>
+                <div class="">
+                    <button class="menu" onclick="openLeftMenu()"><i class="fa-solid fa-bars"></i></button>
+                </div>
+            </div>
+            <div class="logo"><span style="color: blueviolet;">atsu</span><span style="color: #fff;">maru</span></div>
+            <div class="search"><input type="text" placeholder="Tìm kiếm"><button><i class="fa-solid fa-magnifying-glass"></button></i></div>
+            <div class="h-right">
+                <button><i class="fa-solid fa-cart-shopping"></i></button> <button><i class="fa-solid fa-user"></i></button>
+            </div>
+        </div>
+    </div>
+    @RenderBody()
+    <footer>
+        <hr />
+        <div class="footer-section1">
+            <div class="section1-block1">
+                <p style="color: rgba(255, 255, 255, 0.8);"><i class="fa-regular fa-envelope"></i> Đăng ký nhận tin</p>
+            </div>
+            <div class="section1-block2">
+                <input style="background-color: #181818"
+                       type="email"
+                       name="email"
+                       id="email"
+                       placeholder="Nhập email của bạn:" />
+                <span style="color: #fcfcfc; background-color: rgba(54, 54, 54, 0.8);">Đăng ký</span>
+            </div>
+            <div class="section1-block3">
+                <p><i class="fa-solid fa-phone"></i> 0123456789</p>
+            </div>
+        </div>
+        <hr />
+        <div class="footer-section2">
+            <div class="introduce">
+                <h2>GIỚI THIỆU</h2>
+                <p>
+                    Atsumaru – Nền tảng truyện tranh & thương mại điện tử dành cho fan manga. Đọc truyện, mua sắm, kết nối đam mê!
+                </p>
+                <img src="~/assets/img/xac-nhan-bct.png" alt="Xác nhận bộ công thương" />
+            </div>
+            <div class="policy">
+                <h2>CHÍNH SÁCH</h2>
+                <ul>
+                    <li><a href="#">Liên hệ</a></li>
+                    <li><a href="#">Hình thức thanh toán</a></li>
+                    <li><a href="#">Điều khoản dịch vụ</a></li>
+                    <li><a href="#">Chính sách vận chuyển</a></li>
+                    <li><a href="#">Chính sách đổi trả</a></li>
+                    <li><a href="#">Chính sách bảo mật thông tin</a></li>
+                </ul>
+            </div>
+            <div class="contact">
+                <h2>THÔNG TIN LIÊN HỆ</h2>
+                <div class="cover-contact">
+                    <p><i class="fa-solid fa-location-dot"></i> 27 Tôn Thất Tùng-Phường 8-TP Đà Lạt</p>
+                </div>
+                <div class="cover-contact">
+                    <p><i class="fa-solid fa-phone"></i> 0123456789</p>
+                </div>
+                <div class="cover-contact">
+                    <p><i class="fa-regular fa-envelope"></i> atsumaru@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="~/assets/js/script.js"></script>
+</body>
+</html>

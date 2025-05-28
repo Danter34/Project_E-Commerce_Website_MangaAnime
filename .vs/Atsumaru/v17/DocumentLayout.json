@@ -1,0 +1,393 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\LT_web1\\Project\\Atsumaru\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|e:\\lt_web1\\project\\atsumaru\\atsumaru\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|solutionrelative:atsumaru\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|E:\\LT_web1\\Project\\Atsumaru\\atsumaru\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|solutionrelative:atsumaru\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|E:\\LT_web1\\Project\\Atsumaru\\atsumaru\\views\\home\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|solutionrelative:atsumaru\\views\\home\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|E:\\LT_web1\\Project\\Atsumaru\\atsumaru\\wwwroot\\assets\\css\\ct-sp.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|solutionrelative:atsumaru\\wwwroot\\assets\\css\\ct-sp.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|E:\\LT_web1\\Project\\Atsumaru\\atsumaru\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|solutionrelative:atsumaru\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|E:\\LT_web1\\Project\\Atsumaru\\atsumaru\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|solutionrelative:atsumaru\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|E:\\LT_web1\\Project\\Atsumaru\\atsumaru\\wwwroot\\assets\\css\\styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|solutionrelative:atsumaru\\wwwroot\\assets\\css\\styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|E:\\LT_web1\\Project\\Atsumaru\\atsumaru\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|solutionrelative:atsumaru\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|E:\\LT_web1\\Project\\Atsumaru\\atsumaru\\data\\atsumarucontextdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|solutionrelative:atsumaru\\data\\atsumarucontextdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|E:\\LT_web1\\Project\\Atsumaru\\atsumaru\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|solutionrelative:atsumaru\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|E:\\LT_web1\\Project\\Atsumaru\\atsumaru\\migrations\\atsumarucontextdbmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|solutionrelative:atsumaru\\migrations\\atsumarucontextdbmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|E:\\LT_web1\\Project\\Atsumaru\\atsumaru\\models\\services\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|solutionrelative:atsumaru\\models\\services\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|E:\\LT_web1\\Project\\Atsumaru\\atsumaru\\models\\interface\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|solutionrelative:atsumaru\\models\\interface\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|E:\\LT_web1\\Project\\Atsumaru\\atsumaru\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|solutionrelative:atsumaru\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|E:\\LT_web1\\Project\\Atsumaru\\atsumaru\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|solutionrelative:atsumaru\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|E:\\LT_web1\\Project\\Atsumaru\\atsumaru\\wwwroot\\assets\\js\\script.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|solutionrelative:atsumaru\\wwwroot\\assets\\js\\script.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|E:\\LT_web1\\Project\\Atsumaru\\atsumaru\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|solutionrelative:atsumaru\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|E:\\LT_web1\\Project\\Atsumaru\\atsumaru\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|solutionrelative:atsumaru\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|E:\\LT_web1\\Project\\Atsumaru\\atsumaru\\migrations\\20250528110802_firstcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|solutionrelative:atsumaru\\migrations\\20250528110802_firstcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|E:\\LT_web1\\Project\\Atsumaru\\atsumaru\\atsumaru.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|solutionrelative:atsumaru\\atsumaru.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Migrations\\20250528150124_udimagepreview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|solutionrelative:Atsumaru\\Migrations\\20250528150124_udimagepreview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Migrations\\20250528120102_udseedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|solutionrelative:Atsumaru\\Migrations\\20250528120102_udseedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Migrations\\20250528111552_udImage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E4858E5-5937-4410-A2BA-53B63D6B93BF}|Atsumaru\\Atsumaru.csproj|solutionrelative:Atsumaru\\Migrations\\20250528111552_udImage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "Atsumaru\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "Atsumaru\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-28T15:29:18.511Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "20250528150124_udimagepreview.cs",
+              "DocumentMoniker": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Migrations\\20250528150124_udimagepreview.cs",
+              "RelativeDocumentMoniker": "Atsumaru\\Migrations\\20250528150124_udimagepreview.cs",
+              "ToolTip": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Migrations\\20250528150124_udimagepreview.cs",
+              "RelativeToolTip": "Atsumaru\\Migrations\\20250528150124_udimagepreview.cs",
+              "ViewState": "AQIAADoAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T15:01:24.676Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ct-sp.css",
+              "DocumentMoniker": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\ct-sp.css",
+              "RelativeDocumentMoniker": "Atsumaru\\wwwroot\\assets\\css\\ct-sp.css",
+              "ToolTip": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\ct-sp.css",
+              "RelativeToolTip": "Atsumaru\\wwwroot\\assets\\css\\ct-sp.css",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAuwDAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-28T14:03:25.318Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Views\\Home\\Detail.cshtml",
+              "RelativeDocumentMoniker": "Atsumaru\\Views\\Home\\Detail.cshtml",
+              "ToolTip": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Views\\Home\\Detail.cshtml",
+              "RelativeToolTip": "Atsumaru\\Views\\Home\\Detail.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-28T13:28:40.621Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "Atsumaru\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "Atsumaru\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-28T12:58:01.599Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "Atsumaru\\Views\\_ViewImports.cshtml",
+              "ToolTip": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "Atsumaru\\Views\\_ViewImports.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-28T12:58:00.671Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "script.js",
+              "DocumentMoniker": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\js\\script.js",
+              "RelativeDocumentMoniker": "Atsumaru\\wwwroot\\assets\\js\\script.js",
+              "ToolTip": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\js\\script.js",
+              "RelativeToolTip": "Atsumaru\\wwwroot\\assets\\js\\script.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-05-28T12:55:50.985Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "styles.css",
+              "DocumentMoniker": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\styles.css",
+              "RelativeDocumentMoniker": "Atsumaru\\wwwroot\\assets\\css\\styles.css",
+              "ToolTip": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\styles.css",
+              "RelativeToolTip": "Atsumaru\\wwwroot\\assets\\css\\styles.css",
+              "ViewState": "AQIAAE4BAAAAAAAAAAAmwHQBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-28T12:41:32.561Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Atsumaru\\Views\\Home\\Index.cshtml",
+              "ToolTip": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Atsumaru\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAABwAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-28T12:30:11.176Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Atsumaru\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Atsumaru\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAACsAAAB2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-28T12:24:41.29Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Atsumaru\\Controllers\\HomeController.cs",
+              "ToolTip": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Atsumaru\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAwBYAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T12:19:05.985Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ProductRepository.cs",
+              "DocumentMoniker": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Models\\Services\\ProductRepository.cs",
+              "RelativeDocumentMoniker": "Atsumaru\\Models\\Services\\ProductRepository.cs",
+              "ToolTip": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Models\\Services\\ProductRepository.cs",
+              "RelativeToolTip": "Atsumaru\\Models\\Services\\ProductRepository.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAswCsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T12:05:07.913Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IProductRepository.cs",
+              "DocumentMoniker": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Models\\Interface\\IProductRepository.cs",
+              "RelativeDocumentMoniker": "Atsumaru\\Models\\Interface\\IProductRepository.cs",
+              "ToolTip": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Models\\Interface\\IProductRepository.cs",
+              "RelativeToolTip": "Atsumaru\\Models\\Interface\\IProductRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T12:04:41.031Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "20250528120102_udseedata.cs",
+              "DocumentMoniker": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Migrations\\20250528120102_udseedata.cs",
+              "RelativeDocumentMoniker": "Atsumaru\\Migrations\\20250528120102_udseedata.cs",
+              "ToolTip": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Migrations\\20250528120102_udseedata.cs",
+              "RelativeToolTip": "Atsumaru\\Migrations\\20250528120102_udseedata.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T12:01:02.59Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "Atsumaru\\Models\\ErrorViewModel.cs",
+              "ToolTip": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "Atsumaru\\Models\\ErrorViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T11:17:06.763Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "20250528111552_udImage.cs",
+              "DocumentMoniker": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Migrations\\20250528111552_udImage.cs",
+              "RelativeDocumentMoniker": "Atsumaru\\Migrations\\20250528111552_udImage.cs",
+              "ToolTip": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Migrations\\20250528111552_udImage.cs",
+              "RelativeToolTip": "Atsumaru\\Migrations\\20250528111552_udImage.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T11:15:53.007Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AtsumaruContextDBModelSnapshot.cs",
+              "DocumentMoniker": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Migrations\\AtsumaruContextDBModelSnapshot.cs",
+              "RelativeDocumentMoniker": "Atsumaru\\Migrations\\AtsumaruContextDBModelSnapshot.cs",
+              "ToolTip": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Migrations\\AtsumaruContextDBModelSnapshot.cs",
+              "RelativeToolTip": "Atsumaru\\Migrations\\AtsumaruContextDBModelSnapshot.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T11:08:37.572Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "20250528110802_FirstCreate.cs",
+              "DocumentMoniker": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Migrations\\20250528110802_FirstCreate.cs",
+              "RelativeDocumentMoniker": "Atsumaru\\Migrations\\20250528110802_FirstCreate.cs",
+              "ToolTip": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Migrations\\20250528110802_FirstCreate.cs",
+              "RelativeToolTip": "Atsumaru\\Migrations\\20250528110802_FirstCreate.cs",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T11:08:03.165Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Atsumaru",
+              "DocumentMoniker": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Atsumaru.csproj",
+              "RelativeDocumentMoniker": "Atsumaru\\Atsumaru.csproj",
+              "ToolTip": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Atsumaru.csproj",
+              "RelativeToolTip": "Atsumaru\\Atsumaru.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-28T10:58:45.091Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Program.cs",
+              "RelativeDocumentMoniker": "Atsumaru\\Program.cs",
+              "ToolTip": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Program.cs",
+              "RelativeToolTip": "Atsumaru\\Program.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAUwCEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T11:04:04.237Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\appsettings.json",
+              "RelativeDocumentMoniker": "Atsumaru\\appsettings.json",
+              "ToolTip": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\appsettings.json",
+              "RelativeToolTip": "Atsumaru\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-28T11:03:02.377Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AtsumaruContextDB.cs",
+              "DocumentMoniker": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Data\\AtsumaruContextDB.cs",
+              "RelativeDocumentMoniker": "Atsumaru\\Data\\AtsumaruContextDB.cs",
+              "ToolTip": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Data\\AtsumaruContextDB.cs",
+              "RelativeToolTip": "Atsumaru\\Data\\AtsumaruContextDB.cs",
+              "ViewState": "AQIAACYAAAAAAAAAAAAgwFUAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T10:59:05.95Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Product.cs",
+              "DocumentMoniker": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "Atsumaru\\Models\\Product.cs",
+              "ToolTip": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\Models\\Product.cs",
+              "RelativeToolTip": "Atsumaru\\Models\\Product.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAA5wBMAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T10:49:41.017Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
