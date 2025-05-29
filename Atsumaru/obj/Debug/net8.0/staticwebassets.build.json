@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "E1d81o9vFoBaZ9aqJId94W3XkCP1veUooyHi9a6uGEc=",
+  "Hash": "wQAM7IR/u1F3Ms9yAe8L1LbZerI9M61eq2dZdLoQ2yo=",
   "Source": "Atsumaru",
   "BasePath": "_content/Atsumaru",
   "Mode": "Default",
@@ -74,6 +74,25 @@
       "OriginalItemSpec": "wwwroot\\assets\\css\\ct-sp.css"
     },
     {
+      "Identity": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\sp.css",
+      "SourceId": "Atsumaru",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\",
+      "BasePath": "_content/Atsumaru",
+      "RelativePath": "assets/css/sp.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\css\\sp.css"
+    },
+    {
       "Identity": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\styles.css",
       "SourceId": "Atsumaru",
       "SourceType": "Discovered",
@@ -129,6 +148,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\js\\script.js"
+    },
+    {
+      "Identity": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\js\\sp.js",
+      "SourceId": "Atsumaru",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\",
+      "BasePath": "_content/Atsumaru",
+      "RelativePath": "assets/js/sp.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\js\\sp.js"
     },
     {
       "Identity": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\css\\site.css",

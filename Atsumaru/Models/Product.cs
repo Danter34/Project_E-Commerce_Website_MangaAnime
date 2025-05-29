@@ -18,5 +18,9 @@
         public string? Image3 { get; set; }
         public string? Image4 { get; set; }
         public string? Image5 { get; set;}
+        public int categoryId { get; set; }
+        public category? category { get; set; }
+        public int typeId { get; set; }
+        public type? type { get; set; }
     }
 }

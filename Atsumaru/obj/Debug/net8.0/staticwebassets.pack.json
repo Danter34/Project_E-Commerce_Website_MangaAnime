@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\assets\\css\\ct-sp.css"
     },
     {
+      "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\sp.css",
+      "PackagePath": "staticwebassets\\assets\\css\\sp.css"
+    },
+    {
       "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\styles.css",
       "PackagePath": "staticwebassets\\assets\\css\\styles.css"
     },
@@ -19,6 +23,10 @@
     {
       "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\js\\script.js",
       "PackagePath": "staticwebassets\\assets\\js\\script.js"
+    },
+    {
+      "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\js\\sp.js",
+      "PackagePath": "staticwebassets\\assets\\js\\sp.js"
     },
     {
       "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\css\\site.css",

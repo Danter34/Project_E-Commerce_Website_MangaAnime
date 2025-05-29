@@ -142,3 +142,4 @@ E:\LT_web1\Project\Atsumaru\Atsumaru\obj\Debug\net8.0\refint\Atsumaru.dll
 E:\LT_web1\Project\Atsumaru\Atsumaru\obj\Debug\net8.0\Atsumaru.pdb
 E:\LT_web1\Project\Atsumaru\Atsumaru\obj\Debug\net8.0\Atsumaru.genruntimeconfig.cache
 E:\LT_web1\Project\Atsumaru\Atsumaru\obj\Debug\net8.0\ref\Atsumaru.dll
+E:\LT_web1\Project\Atsumaru\Atsumaru\obj\Debug\net8.0\Atsumaru.sourcelink.json
