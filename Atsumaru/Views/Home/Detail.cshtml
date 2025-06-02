@@ -9,9 +9,11 @@
                 <div style="display: flex; justify-content: space-between;">
                     <h2 style="font-weight: bold; ">@Model.Price₫</h2>
                 </div>
-                <button style=" padding: 5px 10px; border-radius:10px ;width: 100%;">
-                    Thêm vào giỏ
-                </button>
+                <a asp-controller="Cart" asp-action="AddCart" asp-route-pId="@Model.Id">
+                    <button style=" padding: 5px 10px; border-radius:10px ;width: 100%;">
+                        Thêm vào giỏ
+                    </button>
+                </a>
                 <div><p>@Model.tag </p></div>
                 <p>
                     @Model.Detail

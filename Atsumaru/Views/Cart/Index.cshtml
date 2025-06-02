@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Cart>
+
+@if (Model.Count() != 0)
+{
+    <div class="wrapcart">
+    <div class="cat">
+        <h3>Giỏ Hàng của bạn </h3>
+        <span>Bạn có @Model.Count() sản phẩm</span>
+        @foreach (var item in Model)
+        {
+            <div class="item">
+                <img src="@item.Product.Image" alt="">
+                <span class="name">@item.Product.Name</span>
+                <span class="price">@item.Product.Price</span>
+                <div class="plus">
+                        <form asp-controller="Cart" asp-action="IncreaseQty" method="post" style="display:inline;">
+                            <input type="hidden" name="productId" value="@item.Product.Id" />
+                            <button id="plus" type="submit" style="background:none; border:none; padding:0; cursor:pointer;">
+                                <i  class="fa-solid fa-angle-up" style="color: white;"></i>
+                            </button>
+                        </form>
+                        
+                        <input type="text" value="@item.Qty" readonly style="width: 30px; text-align: center; border: 0; background: none; color: white;">
+                        <form asp-controller="Cart" asp-action="DecreaseQty" method="post" style="display:inline;">
+                            <input type="hidden" name="productId" value="@item.Product.Id" />
+                            <button id="minus" type="submit" style="background:none; border:none; padding:0; cursor:pointer;">
+                                <i  class="fa-solid fa-angle-down" style="color: white;"></i>
+                            </button>
+                        </form>
+
+                    
+                </div>
+                <div><a asp-controller="Cart" asp-action="RemoveCart" asp-route-pId="@item.Product.Id"><i id="remove" class="fa-solid fa-delete-left"></i></a></div>
+            </div>
+        }
+
+        @{
+            decimal grandTotal = 0;
+            if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    grandTotal += (item.Qty * item.Product.Price);
+                }
+            }
+        }
+
+        <div class="sum">
+            <div class="left">
+                <p>Tổng Sản Phẩm</p>
+                <p>Thanh Toán</p>
+            </div>
+            <div class="right">
+                <p>@grandTotal.ToString()đ</p>
+                <p>@grandTotal.ToString()đ</p>
+            </div>
+        </div>
+        <button>Thanh toán</button>
+    </div>
+</div>
+}
+else
+{
+    <div class="emty">
+        <h1>Giỏ Hàng của bạn đang trống !!</h1>
+        <img src="~/assets/img/image.png" alt="">
+        <div>
+            <a asp-controller="Home" asp-action="Index"><button>Quay lại Trang chủ</button></a>
+        </div>
+    </div>
+}

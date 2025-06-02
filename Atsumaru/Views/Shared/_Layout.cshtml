@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@inject IHttpContextAccessor HttpContextAccessor
+@{
+    var cartCount = HttpContextAccessor?.HttpContext?.Session.GetInt32("CartCount")?? 0;
+}
+<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -8,6 +12,8 @@
     <link rel="stylesheet" href="~/assets/css/styles.css">
     <link rel="stylesheet" href="~/assets/css/ct-sp.css">
     <link rel="stylesheet" href="~/assets/css/sp.css">
+    <link rel="stylesheet" href="~/assets/css/cart.css">
+    <link rel="stylesheet" href="~/assets/css/emty.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css" />
 </head>
 <body>
@@ -34,7 +40,7 @@
                             <a asp-controller ="Products" asp-action="ProductsByType" asp-route-typeId="32">Manhwua</a>
                         </div>
                     </div>
-                    <a href="#" class="w3-bar-item w3-button"><i class="fa-solid fa-cart-shopping"></i> Giỏ Hàng</a>
+                    <a asp-controller="Cart" asp-action="Index" class="w3-bar-item w3-button"><i class="fa-solid fa-cart-shopping"></i> Giỏ Hàng</a>
                     <a href="#" class="w3-bar-item w3-button"><i class="fa-regular fa-heart"></i> Wishlist</a>
                     <a href="#" class="w3-bar-item w3-button"><i class="fa-solid fa-user"></i> Login/Register</a>
                 </div>
@@ -45,7 +51,7 @@
             <div class="logo"><span style="color: blueviolet;">atsu</span><span style="color: #fff;">maru</span></div>
             <div class="search"><input type="text" placeholder="Tìm kiếm"><button><i class="fa-solid fa-magnifying-glass"></button></i></div>
             <div class="h-right">
-                <button><i class="fa-solid fa-cart-shopping"></i></button> <button><i class="fa-solid fa-user"></i></button>
+                <a asp-controller="Cart" asp-action="Index"><button><i class="fa-solid fa-cart-shopping"><span id="cart-quantity-badge" class="cart-quantity-badge">@cartCount</span></i></button> <button><i class="fa-solid fa-user"></i></button></a>
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wQAM7IR/u1F3Ms9yAe8L1LbZerI9M61eq2dZdLoQ2yo=",
+  "Hash": "5MQGljCtaRmHuP0ds6bnFX2Oh/sGY/zw68mhL4YRxpA=",
   "Source": "Atsumaru",
   "BasePath": "_content/Atsumaru",
   "Mode": "Default",
@@ -55,6 +55,25 @@
       "OriginalItemSpec": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Atsumaru.bundle.scp.css"
     },
     {
+      "Identity": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\cart.css",
+      "SourceId": "Atsumaru",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\",
+      "BasePath": "_content/Atsumaru",
+      "RelativePath": "assets/css/cart.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\css\\cart.css"
+    },
+    {
       "Identity": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\ct-sp.css",
       "SourceId": "Atsumaru",
       "SourceType": "Discovered",
@@ -72,6 +91,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\css\\ct-sp.css"
+    },
+    {
+      "Identity": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\emty.css",
+      "SourceId": "Atsumaru",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\",
+      "BasePath": "_content/Atsumaru",
+      "RelativePath": "assets/css/emty.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\css\\emty.css"
     },
     {
       "Identity": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\sp.css",
@@ -110,6 +148,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\css\\styles.css"
+    },
+    {
+      "Identity": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\img\\image.png",
+      "SourceId": "Atsumaru",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\",
+      "BasePath": "_content/Atsumaru",
+      "RelativePath": "assets/img/image.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\image.png"
     },
     {
       "Identity": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\img\\xac-nhan-bct.png",

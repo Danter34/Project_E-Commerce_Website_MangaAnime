@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Atsumaru")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+afcb067c2b89e92c39072a170ec489d07d4bdfde")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+525ba2299ec38d98bda15940abd1e76ecb7d711f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Atsumaru")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Atsumaru")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

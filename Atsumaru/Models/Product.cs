@@ -6,7 +6,7 @@
         public string? Name { get; set; }
         public string? tag { get; set; }
         public string? Detail { get; set; }
-        public decimal? Price { get; set; }
+        public decimal Price { get; set; }
         public bool Banner { get; set; }
         public bool Hotupdate { get; set; }
         public bool top10 {  get; set; }

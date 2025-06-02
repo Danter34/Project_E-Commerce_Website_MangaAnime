@@ -10,7 +10,13 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AtsumaruContextDB>(option =>
 option.UseSqlServer(builder.Configuration.GetConnectionString("AtsumaruContextDBConnection")));
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<ICartRepository, CartRepository>(CartRepository.GetCart);
+
+//sesion
+builder.Services.AddSession();
+builder.Services.AddHttpContextAccessor();
 var app = builder.Build();
+app.UseSession();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
