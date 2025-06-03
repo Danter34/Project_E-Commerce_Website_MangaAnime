@@ -11,7 +11,7 @@ builder.Services.AddDbContext<AtsumaruContextDB>(option =>
 option.UseSqlServer(builder.Configuration.GetConnectionString("AtsumaruContextDBConnection")));
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ICartRepository, CartRepository>(CartRepository.GetCart);
-
+builder.Services.AddScoped<IDeliveryRepository, DeliveryRepository>();
 //sesion
 builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();

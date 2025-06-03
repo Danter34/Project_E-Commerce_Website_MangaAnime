@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5MQGljCtaRmHuP0ds6bnFX2Oh/sGY/zw68mhL4YRxpA=",
+  "Hash": "/ZwHV8iefnNA/n+YrQ7z7H/y0aIrFcf1eH2SeI+r/Xk=",
   "Source": "Atsumaru",
   "BasePath": "_content/Atsumaru",
   "Mode": "Default",
@@ -55,6 +55,25 @@
       "OriginalItemSpec": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Atsumaru.bundle.scp.css"
     },
     {
+      "Identity": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\1-removebg-preview.png",
+      "SourceId": "Atsumaru",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\",
+      "BasePath": "_content/Atsumaru",
+      "RelativePath": "assets/1-removebg-preview.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\1-removebg-preview.png"
+    },
+    {
       "Identity": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\cart.css",
       "SourceId": "Atsumaru",
       "SourceType": "Discovered",
@@ -91,6 +110,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\css\\ct-sp.css"
+    },
+    {
+      "Identity": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\delivery.css",
+      "SourceId": "Atsumaru",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\",
+      "BasePath": "_content/Atsumaru",
+      "RelativePath": "assets/css/delivery.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\css\\delivery.css"
     },
     {
       "Identity": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\emty.css",
@@ -186,6 +224,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\xac-nhan-bct.png"
+    },
+    {
+      "Identity": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\js\\delivery.js",
+      "SourceId": "Atsumaru",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\",
+      "BasePath": "_content/Atsumaru",
+      "RelativePath": "assets/js/delivery.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\js\\delivery.js"
     },
     {
       "Identity": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\js\\script.js",

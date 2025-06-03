@@ -55,7 +55,10 @@
                 <p>@grandTotal.ToString()đ</p>
             </div>
         </div>
-        <button>Thanh toán</button>
+        <a asp-controller="Delivery" asp-action="Checkout">
+                <button>Thanh toán</button>
+        </a>
+        
     </div>
 </div>
 }

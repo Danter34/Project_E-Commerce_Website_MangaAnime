@@ -14,7 +14,8 @@ namespace Atsumaru.Data
         public DbSet<type> types { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Cart> Carts { get; set; }
-
+        public DbSet<Delivery> Deliverys { get; set; }
+        public DbSet<DeliveryDetail> DeliveryDetails { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>()

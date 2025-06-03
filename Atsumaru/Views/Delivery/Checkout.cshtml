@@ -1,0 +1,38 @@
+﻿@model Delivery
+    <div class="checkout-container">
+    <form id="checkoutForm" asp-action="Checkout" method="post" role="form">
+        <div class="wr">
+            <h3>Thông tin giao hàng</h3>
+            <div class="info-box">
+                <div class="name"><input asp-for="Name" type="text" placeholder="Họ và tên" name="Name" required></div>
+                <div class="email-sdt">
+                    <input asp-for="Email" type="email" placeholder="Email" name="Email" required>
+                    <input asp-for="Phone" type="tel" placeholder="Số điện thoại" name="Phone" required>
+                </div>
+            </div>
+            <div class="deliver-box">
+                <div class="chbox1"><input type="checkbox" name="DeliveryOption" value="HomeDelivery"> Giao hàng tận nơi</div>
+                <div class="add">
+                    <input asp-for="Address" type="text" placeholder="Địa chỉ" name="Address" required>
+                </div>
+                <div class="chbox2"><input type="checkbox" name="DeliveryOption" value="StorePickup"> Nhận tại cửa hàng</div>
+            </div>
+            <h3>Phương thức vận chuyển</h3>
+            <div class="dv-box">
+                <div class="chbox3"><input type="checkbox" name="ShippingMethodOption" value="Standard" data-shipping-cost="20000"> Giao hàng thường (3-4 ngày)</div>
+                <div class="chbox4"><input type="checkbox" name="ShippingMethodOption" value="Express" data-shipping-cost="30000"> Giao hàng nhanh (1-2 ngày) </div>
+                <div class="chbox5"><input type="checkbox" name="ShippingMethodOption" value="Flash" data-shipping-cost="40000"> Giao hoả tốc </div>
+            </div>
+            <h3>Phương thức thanh toán</h3>
+            <div class="pt-box">
+                <div class="chbox6"><input type="checkbox" name="PaymentMethodOption" value="COD"> Thanh toán khi nhận hàng (COD)</div>
+                <div class="chbox7"><input type="checkbox" name="PaymentMethodOption" value="BankTransfer"> Chuyển khoản ngân hàng</div>
+                <div class="chbox8"><input type="checkbox" name="PaymentMethodOption" value="Momo"> Ví momo</div>
+            </div>
+            <input type="hidden" id="selectedPaymentMethod" name="SelectedPaymentMethod" value="">
+            <input type="hidden" id="selectedShippingMethod" name="SelectedShippingMethod" value="">
+
+            <button type="submit">Xác nhận</button>
+        </div>
+    </form>
+</div>

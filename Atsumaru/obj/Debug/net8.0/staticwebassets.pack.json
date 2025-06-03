@@ -5,12 +5,20 @@
       "PackagePath": "staticwebassets\\Atsumaru.bundle.scp.css"
     },
     {
+      "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\1-removebg-preview.png",
+      "PackagePath": "staticwebassets\\assets\\1-removebg-preview.png"
+    },
+    {
       "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\cart.css",
       "PackagePath": "staticwebassets\\assets\\css\\cart.css"
     },
     {
       "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\ct-sp.css",
       "PackagePath": "staticwebassets\\assets\\css\\ct-sp.css"
+    },
+    {
+      "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\delivery.css",
+      "PackagePath": "staticwebassets\\assets\\css\\delivery.css"
     },
     {
       "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\emty.css",
@@ -31,6 +39,10 @@
     {
       "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\img\\xac-nhan-bct.png",
       "PackagePath": "staticwebassets\\assets\\img\\xac-nhan-bct.png"
+    },
+    {
+      "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\js\\delivery.js",
+      "PackagePath": "staticwebassets\\assets\\js\\delivery.js"
     },
     {
       "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\js\\script.js",
