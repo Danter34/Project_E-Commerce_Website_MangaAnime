@@ -1,10 +1,11 @@
 ﻿using Atsumaru.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 
 namespace Atsumaru.Data
 {
-    public class AtsumaruContextDB : DbContext
+    public class AtsumaruContextDB : IdentityDbContext
     {
         public AtsumaruContextDB(DbContextOptions<AtsumaruContextDB> options) : base(options)
         {

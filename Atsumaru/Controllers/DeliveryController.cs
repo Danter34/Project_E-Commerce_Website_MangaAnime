@@ -1,9 +1,10 @@
 ﻿using Atsumaru.Models;
 using Atsumaru.Models.Interface;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.AspNetCore.Authorization;
 namespace Atsumaru.Controllers
 {
+    [Authorize]
     public class DeliveryController : Controller
     {
         private IDeliveryRepository DeliveryRepository;

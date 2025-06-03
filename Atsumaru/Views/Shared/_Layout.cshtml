@@ -43,13 +43,7 @@
                     </div>
                     <a asp-controller="Cart" asp-action="Index" class="w3-bar-item w3-button"><i class="fa-solid fa-cart-shopping"></i> Giỏ Hàng</a>
                     <a href="#" class="w3-bar-item w3-button"><i class="fa-regular fa-heart"></i> Wishlist</a>
-                    <div class="dropdown">
-                        <a href="#" class="w3-bar-item w3-button"><i class="fa-solid fa-user"></i> Login/Register</a>
-                        <div class="dropdown-content">
-                            <a>Login</a>
-                            <a>Register</a>
-                        </div>
-                    </div>
+                    <partial name="_LoginPartial"></partial>
                     
                 </div>
                 <div class="">
@@ -59,7 +53,8 @@
             <div class="logo"><span style="color: blueviolet;">atsu</span><span style="color: #fff;">maru</span></div>
             <div class="search"><input type="text" placeholder="Tìm kiếm"><button><i class="fa-solid fa-magnifying-glass"></button></i></div>
             <div class="h-right">
-                <a asp-controller="Cart" asp-action="Index"><button><i class="fa-solid fa-cart-shopping"><span id="cart-quantity-badge" class="cart-quantity-badge">@cartCount</span></i></button> <button><i class="fa-solid fa-user"></i></button></a>
+                <a asp-controller="Cart" asp-action="Index"><button><i class="fa-solid fa-cart-shopping"><span id="cart-quantity-badge" class="cart-quantity-badge">@cartCount</span></i></button> </a>
+                <button><i class="fa-solid fa-user"></i></button>
             </div>
         </div>
     </div>

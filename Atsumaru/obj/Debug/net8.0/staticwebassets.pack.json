@@ -9,6 +9,14 @@
       "PackagePath": "staticwebassets\\assets\\1-removebg-preview.png"
     },
     {
+      "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\aa.mp4",
+      "PackagePath": "staticwebassets\\assets\\aa.mp4"
+    },
+    {
+      "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\base.css",
+      "PackagePath": "staticwebassets\\assets\\css\\base.css"
+    },
+    {
       "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\cart.css",
       "PackagePath": "staticwebassets\\assets\\css\\cart.css"
     },
@@ -23,6 +31,10 @@
     {
       "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\emty.css",
       "PackagePath": "staticwebassets\\assets\\css\\emty.css"
+    },
+    {
+      "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\login.css",
+      "PackagePath": "staticwebassets\\assets\\css\\login.css"
     },
     {
       "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\sp.css",
@@ -43,6 +55,10 @@
     {
       "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\js\\delivery.js",
       "PackagePath": "staticwebassets\\assets\\js\\delivery.js"
+    },
+    {
+      "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\js\\login.js",
+      "PackagePath": "staticwebassets\\assets\\js\\login.js"
     },
     {
       "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\js\\script.js",

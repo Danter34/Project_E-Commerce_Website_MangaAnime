@@ -1,0 +1,49 @@
+﻿@page
+@model RegisterModel
+
+<div class="cover">
+    <div class="wrapper" id="wrapper">
+        <form id="registerForm" class="login-form" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <h1>Đăng ký</h1>
+
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+            <div class="input-box">
+                <input asp-for="Input.Email" class="form-control" placeholder="Email" autocomplete="username" aria-required="true" />
+                <i class="fa-solid fa-user"></i>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+
+            <div class="input-box">
+                <input asp-for="Input.Password" class="form-control" placeholder="Mật khẩu" autocomplete="new-password" aria-required="true" />
+                <i class="fa-solid fa-lock" id="show-hide-pass-register"></i>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+
+            <div class="input-box">
+                <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Nhập lại mật khẩu" autocomplete="new-password" aria-required="true" />
+                <i class="fa-solid fa-lock" id="show-hide-pass-register-again"></i>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <div class="register-login-link">
+                <p>
+                    Bạn đã có tài khoản?
+                    <a asp-page="/Account/Login" asp-route-returnUrl="@Model.ReturnUrl" id="login-link">Đăng nhập ngay!</a>
+                </p>
+            </div>
+
+            <button id="btn-register" type="submit" class="button">
+                Đăng ký
+            </button>
+
+            <div class="home-link">
+                <a href="/">Quay lại trang chủ</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,72 @@
+﻿@page
+@model LoginModel
+<div class="cover">
+    <form id="account" method="post">
+
+        <div class="wrapper" id="wrapper">
+            <div class="login-form">
+                <h1>Đăng nhập</h1>
+
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+                <div class="input-box">
+                    <input asp-for="Input.Email" class="form-control"
+                           placeholder="Tên đăng nhập" autocomplete="username" aria-required="true" />
+                    <i class="fa-solid fa-user"></i>
+                    <p id="error-acc-login">
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </p>
+                </div>
+
+                <div class="input-box">
+                    <input asp-for="Input.Password" class="form-control"
+                           placeholder="Mật khẩu" autocomplete="current-password" aria-required="true" />
+                    <i id="show-hide-pass-login" class="fa-solid fa-lock"></i>
+                    <p id="error-pass-login">
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </p>
+                </div>
+
+                <div class="forgot-box">
+                    <label asp-for="Input.RememberMe">
+                        <input asp-for="Input.RememberMe" class="form-check-input" />
+                        ghi nhớ đăng nhập?
+                    </label>
+                    <a asp-page="./ForgotPassword">Quên mật khẩu?</a>
+                </div>
+
+                <button id="btn-login" type="submit" class="button">Đăng nhập</button>
+
+                @if ((Model.ExternalLogins?.Count ?? 0) > 0)
+                {
+                    <div class="external-login">
+                        <p>Hoặc đăng nhập với:</p>
+                        <form asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                            @foreach (var provider in Model.ExternalLogins!)
+                            {
+                                <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name">
+                                    @provider.DisplayName
+                                </button>
+                            }
+                        </form>
+                    </div>
+                }
+
+
+                <div class="register-login-link">
+                    <p>
+                        Bạn chưa có tài khoản?
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" id="register-link">Đăng ký ngay!</a>
+                    </p>
+                </div>
+
+                <div class="home-link">
+                    <a href="/">Quay lại trang chủ</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
