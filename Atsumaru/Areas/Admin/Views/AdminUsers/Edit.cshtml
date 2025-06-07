@@ -1,0 +1,107 @@
+﻿@model Microsoft.AspNetCore.Identity.IdentityUser 
+@using Microsoft.AspNetCore.Identity;
+@{
+    ViewData["Title"] = "Sửa Người dùng";
+    var allRoles = ViewBag.AllRoles as IList<IdentityRole>;
+    var userRoles = ViewBag.UserRoles as IList<string>;
+}
+
+<h1>Sửa Người dùng</h1>
+
+<h4>Người dùng: @Model.UserName</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Lưu thông tin" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <h4>Quản lý vai trò</h4>
+        <hr />
+
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success" role="alert">
+                @TempData["SuccessMessage"]
+            </div>
+        }
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger" role="alert">
+                @TempData["ErrorMessage"]
+            </div>
+        }
+
+        <h5>Vai trò hiện tại của người dùng:</h5>
+        @if (userRoles != null && userRoles.Any())
+        {
+            <ul class="list-group mb-3">
+                @foreach (var role in userRoles)
+                {
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span style="color: black">@role</span>
+                        <form asp-action="RemoveRoleFromUser" asp-route-userId="@Model.Id" asp-route-roleName="@role" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc chắn muốn gỡ vai trò này khỏi người dùng không?');">Gỡ bỏ</button>
+                        </form>
+                    </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>Người dùng này chưa có vai trò nào.</p>
+        }
+
+        <h5>Thêm vai trò mới:</h5>
+        @if (allRoles != null && allRoles.Any())
+        {
+            <form asp-action="AddRoleToUser" asp-route-userId="@Model.Id" method="post">
+                <div class="form-group">
+                    <select name="roleName" class="form-control">
+                        <option value="">-- Chọn vai trò --</option>
+                        @foreach (var role in allRoles.OrderBy(r => r.Name))
+                        {
+                            if (!userRoles.Contains(role.Name))
+                            {
+                                <option value="@role.Name">@role.Name</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="form-group mt-3">
+                    <button type="submit" class="btn btn-success">Thêm vai trò</button>
+                </div>
+            </form>
+        }
+        else
+        {
+            <p>Chưa có vai trò nào được tạo trong hệ thống. Vui lòng tạo vai trò trước (Kiểm tra Seed Data).</p>
+        }
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Quay lại danh sách</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Admin Atsumaru</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/assets/css/admin.css" /> @* Đảm bảo bạn tạo file này trong wwwroot/css *@
+</head>
+<body>
+    <div class="sidebar">
+        <h3 class="text-center text-white mb-4">SB ADMIN <sup>2</sup></h3>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
+                    <i class="fas fa-fw fa-tachometer-alt"></i> Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="Admin" asp-controller="AdminUsers" asp-action="Index">
+                    <i class="fas fa-users"></i> Quản lý User
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="Admin" asp-controller="AdminClassifications" asp-action="Index">
+                    <i class="fas fa-tags"></i> Quản lý Danh mục
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="Admin" asp-controller="AdminProducts" asp-action="Index">
+                    <i class="fas fa-box"></i> Quản lý Sản phẩm
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="Admin" asp-controller="AdminOrders" asp-action="Index">
+                    <i class="fas fa-shopping-cart"></i> Quản lý Đơn hàng
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="Atsumaru" asp-controller="Home" asp-action="Index">
+                    <i class="fa-solid fa-house"></i> Quay Lại Trang Chủ
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="content">
+        <nav class="navbar navbar-expand navbar-dark topbar static-top shadow">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown no-arrow">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">@User.Identity.Name</span>
+                        <img class="img-profile rounded-circle" src="https://images.hdqwalls.com/walls/thumb/dragon-ball-z-molten-5k-g2.jpg" style="width: 40px; height: 40px;">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" asp-area="Atsumaru" asp-controller="Profile" asp-action="Index">
+                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Profile
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                            <button type="submit" class="dropdown-item">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Logout
+                            </button>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        @RenderBody()
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

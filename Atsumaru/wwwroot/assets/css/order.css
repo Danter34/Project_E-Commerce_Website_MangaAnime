@@ -1,0 +1,139 @@
+﻿/* Container */
+.containero {
+    max-width: 1000px;
+    margin: 40px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0 15px;
+}
+
+/* Title */
+.title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: white;
+}
+
+/* Alert */
+.alert-infoo {
+    background-color: black;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+/* Table Wrapper for scroll on small devices */
+.table-wrappero {
+    overflow-x: auto;
+}
+
+/* Table styles */
+.custom-tableo {
+    width: 100%;
+    color: white;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    background-color: rgb(23, 23, 23);
+    border-radius: 8px;
+    overflow: hidden;
+    min-width: 700px;
+}
+
+    /* Table header */
+    .custom-tableo thead tr {
+        background-color: rgb(23, 23, 23);
+    }
+
+    .custom-tableo thead th {
+        font-weight: 700;
+        text-align: left;
+        padding: 15px;
+        border-bottom: 2px solid #ddd;
+        color: white;
+        white-space: nowrap;
+    }
+
+    /* Table body rows */
+    .custom-tableo tbody tr:hover {
+        background-color: rgb(23, 23, 23);
+    }
+
+    .custom-tableo tbody td {
+        padding: 12px 15px;
+        vertical-align: middle;
+        border-bottom: 1px solid #eee;
+        white-space: nowrap;
+    }
+
+/* Product list inside cell */
+.product-listo {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+    .product-listo li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 6px;
+    }
+
+        .product-listo li img {
+            width: 40px;
+            height: 40px;
+            border-radius: 6px;
+            object-fit: cover;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+        }
+
+.no-detailso {
+    color: #999;
+    font-style: italic;
+}
+
+/* Align right for total */
+.text-righto {
+    text-align: right;
+    font-weight: 600;
+    color: #2e86de;
+    white-space: nowrap;
+}
+
+/* Status column */
+.statuso {
+    text-transform: capitalize;
+    white-space: nowrap;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .custom-tableo {
+        min-width: 600px;
+    }
+
+        .custom-tableo thead th,
+        .custom-tableo tbody td {
+            padding: 10px 8px;
+            font-size: 14px;
+        }
+
+    .product-listo li img {
+        width: 30px;
+        height: 30px;
+        margin-right: 8px;
+    }
+}
+
+@media (max-width: 400px) {
+    .custom-tableo {
+        min-width: 500px;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+}

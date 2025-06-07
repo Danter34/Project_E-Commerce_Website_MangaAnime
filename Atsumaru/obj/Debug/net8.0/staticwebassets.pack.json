@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\assets\\aa.mp4"
     },
     {
+      "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\admin.css",
+      "PackagePath": "staticwebassets\\assets\\css\\admin.css"
+    },
+    {
       "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\base.css",
       "PackagePath": "staticwebassets\\assets\\css\\base.css"
     },
@@ -35,6 +39,14 @@
     {
       "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\login.css",
       "PackagePath": "staticwebassets\\assets\\css\\login.css"
+    },
+    {
+      "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\order.css",
+      "PackagePath": "staticwebassets\\assets\\css\\order.css"
+    },
+    {
+      "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\profile.css",
+      "PackagePath": "staticwebassets\\assets\\css\\profile.css"
     },
     {
       "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\assets\\css\\sp.css",
@@ -75,6 +87,14 @@
     {
       "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\images\\01c5d268-178e-4782-b0d7-4aff03decc83.png",
+      "PackagePath": "staticwebassets\\images\\01c5d268-178e-4782-b0d7-4aff03decc83.png"
+    },
+    {
+      "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\images\\b8b32c95-9adb-4e1a-ada4-7eb5bce2d7f6.png",
+      "PackagePath": "staticwebassets\\images\\b8b32c95-9adb-4e1a-ada4-7eb5bce2d7f6.png"
     },
     {
       "Id": "E:\\LT_web1\\Project\\Atsumaru\\Atsumaru\\wwwroot\\js\\site.js",

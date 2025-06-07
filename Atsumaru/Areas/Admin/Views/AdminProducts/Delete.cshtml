@@ -1,0 +1,125 @@
+﻿@model Atsumaru.Models.Product
+@{
+    ViewData["Title"] = "Xóa Sản phẩm";
+    // Layout đã được thiết lập trong _ViewStart.cshtml
+}
+
+<h1>Xóa Sản phẩm</h1>
+
+<h3>Bạn có chắc muốn xóa sản phẩm này không?</h3>
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd class="col-sm-9">
+            @if (!string.IsNullOrEmpty(Model.Image))
+            {
+                <img src="@Model.Image" alt="@Model.Name" style="max-width: 100px; height: auto;" />
+            }
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class="col-sm-9">
+            @Model.Price.ToString("N0") VNĐ
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Detail)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Detail)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Hotupdate)
+        </dt>
+        <dd class="col-sm-9">
+            @if (Model.Hotupdate)
+            {
+                <i class="fas fa-check text-success"></i>
+            }
+            else
+            {
+                <i class="fas fa-times text-danger"></i>
+            }
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.top10)
+        </dt>
+        <dd class="col-sm-9">
+            @if (Model.top10)
+            {
+                <i class="fas fa-check text-success"></i>
+            }
+            else
+            {
+                <i class="fas fa-times text-danger"></i>
+            }
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Newproduct)
+        </dt>
+        <dd class="col-sm-9">
+            @if (Model.Newproduct)
+            {
+                <i class="fas fa-check text-success"></i>
+            }
+            else
+            {
+                <i class="fas fa-times text-danger"></i>
+            }
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Lastupdate)
+        </dt>
+        <dd class="col-sm-9">
+            @if (Model.Lastupdate)
+            {
+                <i class="fas fa-check text-success"></i>
+            }
+            else
+            {
+                <i class="fas fa-times text-danger"></i>
+            }
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Banner)
+        </dt>
+        <dd class="col-sm-9">
+            @if (Model.Banner)
+            {
+                <i class="fas fa-check text-success"></i>
+            }
+            else
+            {
+                <i class="fas fa-times text-danger"></i>
+            }
+        </dd>
+        <dt class="col-sm-3">
+            Danh mục
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.category.categoryname) @* ĐÃ SỬA: model.Category.Name -> model.category.categoryname *@
+        </dd>
+        <dt class="col-sm-3">
+            Loại truyện
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.type.typename) @* ĐÃ SỬA: model.Type.Name -> model.type.typename *@
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Xóa" class="btn btn-danger" /> |
+        <a asp-action="Index">Quay lại danh sách</a>
+    </form>
+</div>

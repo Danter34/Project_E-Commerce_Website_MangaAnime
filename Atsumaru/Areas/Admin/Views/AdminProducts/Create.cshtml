@@ -1,0 +1,124 @@
+﻿@model Atsumaru.Models.Product
+@{
+    ViewData["Title"] = "Thêm Sản phẩm mới";
+    // Layout đã được thiết lập trong _ViewStart.cshtml
+}
+
+<h1>Thêm Sản phẩm mới</h1>
+
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="tag" class="control-label"></label>
+                <input asp-for="tag" class="form-control" />
+                <span asp-validation-for="tag" class="text-danger"></span>
+            </div>
+
+            @* Input cho Image chính *@
+            <div class="form-group">
+                <label asp-for="Image" class="control-label">Ảnh chính:</label>
+                <input type="file" name="imageFile" class="form-control-file" accept="image/*" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+
+            @* Input cho Image1 *@
+            <div class="form-group">
+                <label asp-for="Image1" class="control-label">Ảnh phụ 1:</label>
+                <input type="file" name="image1File" class="form-control-file" accept="image/*" />
+                <span asp-validation-for="Image1" class="text-danger"></span>
+            </div>
+
+            @* Input cho Image2 *@
+            <div class="form-group">
+                <label asp-for="Image2" class="control-label">Ảnh phụ 2:</label>
+                <input type="file" name="image2File" class="form-control-file" accept="image/*" />
+                <span asp-validation-for="Image2" class="text-danger"></span>
+            </div>
+
+            @* Input cho Image3 *@
+            <div class="form-group">
+                <label asp-for="Image3" class="control-label">Ảnh phụ 3:</label>
+                <input type="file" name="image3File" class="form-control-file" accept="image/*" />
+                <span asp-validation-for="Image3" class="text-danger"></span>
+            </div>
+
+            @* Input cho Image4 *@
+            <div class="form-group">
+                <label asp-for="Image4" class="control-label">Ảnh phụ 4:</label>
+                <input type="file" name="image4File" class="form-control-file" accept="image/*" />
+                <span asp-validation-for="Image4" class="text-danger"></span>
+            </div>
+
+            @* Input cho Image5 *@
+            <div class="form-group">
+                <label asp-for="Image5" class="control-label">Ảnh phụ 5:</label>
+                <input type="file" name="image5File" class="form-control-file" accept="image/*" />
+                <span asp-validation-for="Image5" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" type="number" step="0.01" /> @* Đảm bảo kiểu số và bước nhảy *@
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Detail" class="control-label"></label>
+                <textarea asp-for="Detail" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Detail" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <input class="form-check-input" asp-for="Hotupdate" />
+                <label class="form-check-label" asp-for="Hotupdate"></label>
+            </div>
+            <div class="form-group form-check">
+                <input class="form-check-input" asp-for="top10" />
+                <label class="form-check-label" asp-for="top10"></label>
+            </div>
+            <div class="form-group form-check">
+                <input class="form-check-input" asp-for="Newproduct" />
+                <label class="form-check-label" asp-for="Newproduct"></label>
+            </div>
+            <div class="form-group form-check">
+                <input class="form-check-input" asp-for="Lastupdate" />
+                <label class="form-check-label" asp-for="Lastupdate"></label>
+            </div>
+            <div class="form-group form-check">
+                <input class="form-check-input" asp-for="Banner" />
+                <label class="form-check-label" asp-for="Banner"></label>
+            </div>
+            <div class="form-group">
+                <label asp-for="categoryId" class="control-label"></label>
+                <select asp-for="categoryId" class="form-control" asp-items="ViewBag.categoryId"></select>
+                <span asp-validation-for="categoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="typeId" class="control-label"></label>
+                <select asp-for="typeId" class="form-control" asp-items="ViewBag.typeId"></select>
+                <span asp-validation-for="typeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Tạo mới" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Quay lại danh sách</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

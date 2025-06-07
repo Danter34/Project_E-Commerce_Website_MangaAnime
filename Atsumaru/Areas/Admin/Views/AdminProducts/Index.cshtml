@@ -1,0 +1,131 @@
+﻿@model IEnumerable<Atsumaru.Models.Product>
+@{
+    ViewData["Title"] = "Quản lý Sản phẩm";
+    // Layout đã được thiết lập trong _ViewStart.cshtml
+}
+
+<h1>Quản lý Sản phẩm</h1>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Thêm sản phẩm mới</a>
+</p>
+<div class="row mb-3">
+    <div class="col-md-6">
+        <form asp-action="Index" method="get">
+            <div class="input-group">
+                <input type="text" class="form-control bg-dark text-white" placeholder="Tìm kiếm sản phẩm..." name="searchTerm" value="@ViewBag.CurrentSearchTerm" />
+                <button class="btn btn-outline-info" type="submit">Tìm kiếm</button>
+                <a asp-action="Index" class="btn btn-outline-secondary">Xóa tìm kiếm</a> @* Nút để xóa từ khóa tìm kiếm và tải lại tất cả sản phẩm *@
+            </div>
+        </form>
+    </div>
+</div>
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <th>@Html.DisplayNameFor(model => model.Image)</th>
+            <th>@Html.DisplayNameFor(model => model.Price )</th>
+            <th>Danh mục</th>
+            <th>Loại truyện</th>
+            <th>Hot Update</th>
+            <th>Top 10</th>
+            <th>New Product</th>
+            <th>Last Update</th>
+            <th>Banner</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int stt = 0;
+        }
+        @foreach (var item in Model)
+        {
+            stt++;
+            <tr>
+                <td>@stt</td>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>
+                    <img src="@item.Image" alt="@item.Name" style="width: 50px; height: 50px; object-fit: cover;">
+                </td>
+                <td>@item.Price.ToString("N0") VNĐ</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.category.categoryname) @* SỬA: item.Category.Name -> item.category.categoryname *@
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.type.typename) @* SỬA: item.Type.Name -> item.type.typename *@
+                </td>
+                <td>
+                    @if (item.Hotupdate)
+                    {
+                        <i class="fas fa-check text-success"></i>
+                    }
+                    else
+                    {
+                        <i class="fas fa-times text-danger"></i>
+                    }
+                </td>
+                <td>
+                    @if (item.top10)
+                    {
+                        <i class="fas fa-check text-success"></i>
+                    }
+                    else
+                    {
+                        <i class="fas fa-times text-danger"></i>
+                    }
+                </td>
+                <td>
+                    @if (item.Newproduct)
+                    {
+                        <i class="fas fa-check text-success"></i>
+                    }
+                    else
+                    {
+                        <i class="fas fa-times text-danger"></i>
+                    }
+                </td>
+                <td>
+                    @if (item.Lastupdate)
+                    {
+                        <i class="fas fa-check text-success"></i>
+                    }
+                    else
+                    {
+                        <i class="fas fa-times text-danger"></i>
+                    }
+                </td>
+                <td>
+                    @if (item.Banner)
+                    {
+                        <i class="fas fa-check text-success"></i>
+                    }
+                    else
+                    {
+                        <i class="fas fa-times text-danger"></i>
+                    }
+                </td>
+                <td>
+                    <a asp-controller="AdminProducts" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-info">Sửa</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-secondary">Chi tiết</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

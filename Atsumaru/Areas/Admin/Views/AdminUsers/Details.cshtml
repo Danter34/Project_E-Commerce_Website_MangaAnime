@@ -1,0 +1,49 @@
+﻿@model Microsoft.AspNetCore.Identity.IdentityUser 
+
+@{
+    ViewData["Title"] = "Chi tiết Người dùng";
+    var userRoles = ViewBag.UserRoles as IList<string>;
+}
+
+<h1>Chi tiết Người dùng</h1>
+
+<div>
+    <h4>Người dùng</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-2">
+            Vai trò
+        </dt>
+        <dd class="col-sm-10">
+            @if (userRoles != null && userRoles.Any())
+            {
+                <ul>
+                    @foreach (var role in userRoles)
+                    {
+                        <li>@role</li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <span>Không có vai trò nào được gán.</span>
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Sửa</a> |
+    <a asp-action="Index">Quay lại danh sách</a>
+</div>

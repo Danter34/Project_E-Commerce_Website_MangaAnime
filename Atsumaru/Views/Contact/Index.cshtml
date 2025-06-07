@@ -1,0 +1,249 @@
+﻿@model Atsumaru.Models.Contact
+
+<style>
+    /* Overall Section Background */
+    .contact-form-section {
+        background-color: rgb(23, 23, 23); /* Dark background for the section, matching the image */
+        padding: 50px 0; /* Add some padding for spacing */
+    }
+
+    .custom-container {
+        max-width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+        /* background-color: rgb(23, 23, 23); Removed as it's now on the section */
+    }
+
+    .custom-row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+    .custom-col-lg-8 {
+        flex: 0 0 66.666667%;
+        max-width: 66.666667%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .custom-col-full {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .justify-content-center {
+        justify-content: center;
+    }
+
+    .mx-auto {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Section Header */
+    .section-header {
+        margin-bottom: 2rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        color: #E0E0E0; /* Light gray for header text, matching the image */
+    }
+
+    /* Form Styles */
+    .custom-form-wrapper {
+        background-color: rgb(34, 34, 34); /* Slightly lighter dark background for the form container */
+        padding: 40px; /* Increased padding for the form wrapper */
+        border-radius: 8px; /* Slightly more rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Darker shadow for depth */
+    }
+
+    .custom-form {
+        /* padding: 20px; Removed, padding is now on custom-form-wrapper */
+        border: none; /* No border for the form itself, as per image */
+        border-radius: 0; /* No border radius on the form, it's on the wrapper */
+        box-shadow: none; /* No shadow on the form itself */
+    }
+
+    .form-description {
+        font-size: 1.1rem;
+        color: #B0B0B0; /* Lighter gray for description text, matching the image */
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .custom-form-control {
+        display: block;
+        width: 100%;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #333; /* Dark gray for input text, matching the image */
+        background-color: #fff; /* White background for input fields, matching the image */
+        background-clip: padding-box;
+        border: 1px solid #555; /* Slightly darker border for contrast */
+        border-radius: 0.25rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+        .custom-form-control:focus {
+            color: #333;
+            background-color: #fff;
+            border-color: #00A693; /* Teal border on focus */
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 166, 147, 0.25); /* Teal shadow on focus */
+        }
+
+    textarea.custom-form-control {
+        min-height: 100px;
+        resize: vertical;
+    }
+
+    /* Buttons */
+    .custom-btn {
+        display: inline-block;
+        font-weight: 600; /* Slightly bolder font for button */
+        color: #fff; /* White text for button */
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        user-select: none;
+        background-color: #00A693; /* Teal background for button, matching the image */
+        border: 1px solid #00A693; /* Teal border for button */
+        padding: 0.75rem 2rem; /* Increased horizontal padding */
+        font-size: 1.1rem; /* Slightly larger font size */
+        line-height: 1.5;
+        border-radius: 0.25rem;
+        transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    .custom-btn-primary {
+        color: #fff;
+        background-color: #00A693; /* Teal background */
+        border-color: #00A693; /* Teal border */
+    }
+
+        .custom-btn-primary:hover {
+            background-color: #008775; /* Darker teal on hover */
+            border-color: #008775; /* Darker teal on hover */
+        }
+
+    /* Validation and Messages */
+    .validation-summary-errors {
+        color: #FF6B6B; /* A more visible red for errors on dark background */
+        font-size: 0.9em;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .validation-text-danger {
+        color: #FF6B6B; /* A more visible red for individual field errors */
+        font-size: 0.8em;
+        display: block;
+        margin-top: 0.25rem;
+    }
+
+    .message-success {
+        color: #1a5e20; /* Dark green text for success message */
+        background-color: #d8f5e6; /* Light green background for success message, matching the image */
+        border-color: #c0e0cc;
+        padding: 0.75rem 1.25rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
+        text-align: center;
+    }
+
+    .message-error {
+        color: #8c2a30; /* Darker red text for error message */
+        background-color: #fce8e9; /* Lighter red background for error message */
+        border-color: #f7d2d3;
+        padding: 0.75rem 1.25rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
+        text-align: center;
+    }
+
+    /* Utility Classes */
+    .align-center {
+        text-align: center;
+    }
+
+    .mb-3 {
+        margin-bottom: 1rem;
+    }
+
+    .mb-4 {
+        margin-bottom: 1.5rem;
+    }
+
+    .mt-4 {
+        margin-top: 1.5rem;
+    }
+</style>
+<section class="contact-form-section" id="form7-q">
+    <div class="custom-container">
+        <div class="section-header">
+            <h3 class="section-title align-center">
+                <strong>Get in Touch</strong>
+            </h3>
+        </div>
+        <div class="custom-row justify-content-center mt-4">
+            <div class="custom-col-lg-8 mx-auto custom-form-wrapper">
+
+                <form asp-controller="Contact" asp-action="Send" method="post" class="custom-form mx-auto">
+                    @Html.AntiForgeryToken()
+
+                    <p class="form-description align-center mb-4">
+                        Chúng Tôi Sẽ Liên Hệ Sớm Nhất có Thể
+                    </p>
+
+                    <div asp-validation-summary="ModelOnly" class="validation-summary-errors mb-3"></div>
+
+                    <div class="form-fields-area custom-row">
+                        <div class="custom-col-full form-group mb-3">
+                            <input asp-for="Name" type="text" class="custom-form-control" placeholder="Name" />
+                            <span asp-validation-for="Name" class="validation-text-danger"></span>
+                        </div>
+
+                        <div class="custom-col-full form-group mb-3">
+                            <input asp-for="Email" type="email" class="custom-form-control" placeholder="Email" />
+                            <span asp-validation-for="Email" class="validation-text-danger"></span>
+                        </div>
+
+                        <div class="custom-col-full form-group mb-3">
+                            <textarea asp-for="Message" class="custom-form-control" rows="5" placeholder="Message"></textarea>
+                            <span asp-validation-for="Message" class="validation-text-danger"></span>
+                        </div>
+
+                        <div class="custom-col-auto form-button-area align-center">
+                            <button type="submit" class="custom-btn custom-btn-primary">Send</button>
+                        </div>
+                    </div>
+
+                    @if (ViewBag.SuccessMessage != null)
+                    {
+                        <div class="message-success mt-4 text-center">@ViewBag.SuccessMessage</div>
+                    }
+                    @if (ViewBag.ErrorMessage != null)
+                    {
+                        <div class="message-error mt-4 text-center">@ViewBag.ErrorMessage</div>
+                    }
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

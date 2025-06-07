@@ -101,21 +101,32 @@ namespace Atsumaru.Models.Services
         {
             if (string.IsNullOrEmpty(userId))
             {
-                return new List<Product>(); // Trả về danh sách rỗng nếu userId trống
+                return new List<Product>(); 
             }
 
-            // Lấy ProductId từ WishlistItems của người dùng
+
             var productIdsInWishlist = await db.WishlistItems
                                                 .Where(wi => wi.UserId == userId)
                                                 .Select(wi => wi.ProductId)
                                                 .ToListAsync();
 
-            // Lấy thông tin chi tiết các sản phẩm từ danh sách ProductIds
+
             var products = await db.Products
                                  .Where(p => productIdsInWishlist.Contains(p.Id))
                                  .ToListAsync();
 
             return products;
+        }
+        public async Task<List<Product>> SearchProductsAsync(string searchTerm)
+        {
+            if (string.IsNullOrWhiteSpace(searchTerm))
+            {
+                return new List<Product>();
+            }
+
+            return await db.Products
+                           .Where(p => p.Name.Contains(searchTerm) || p.Detail.Contains(searchTerm)) 
+                           .ToListAsync();
         }
     }
 }

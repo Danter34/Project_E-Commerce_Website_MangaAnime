@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Atsumaru.Models.Delivery>
+
+@{
+    ViewData["Title"] = "Lịch sử đơn hàng của bạn";
+}
+
+<div class="containero">
+    <h2 class="title">Lịch sử đơn hàng của bạn</h2>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert-infoo">
+            Bạn chưa có đơn hàng nào.
+        </div>
+    }
+    else
+    {
+        <div class="table-wrappero">
+            <table class="custom-tableo">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Thời gian đặt hàng</th>
+                        <th>Chi tiết sản phẩm</th>
+                        <th>Địa chỉ giao hàng</th>
+                        <th>Tổng cộng</th>
+                        <th>Trạng thái</th>
+                        <th>Thao tác</th> @* Corrected: Simple header for the action column *@
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int stt = 0;
+                    }
+                    @foreach (var order in Model)
+                    {
+                        stt++;
+                        <tr>
+                            <td>@stt</td>
+                            <td>@order.DeliveryPlaced.ToString("dd/MM/yyyy HH:mm:ss")</td>
+                            <td>
+                                @if (order.DeliveryDetails != null && order.DeliveryDetails.Any())
+                                {
+                                    <ul class="product-listo">
+                                        @foreach (var detail in order.DeliveryDetails)
+                                        {
+                                            <li>
+                                                <img src="@detail.Product.Image" alt="@detail.Product?.Name" />
+                                                <span>@detail.Quantity x <strong>@detail.Product?.Name</strong> (@detail.Price.ToString("N2") VNĐ)</span>
+                                            </li>
+                                        }
+                                    </ul>
+                                }
+                                else
+                                {
+                                    <span class="no-detailso">Không có chi tiết sản phẩm</span>
+                                }
+                            </td>
+                            <td>@order.Address</td>
+                            <td class="text-right">@order.DeliveryTotal.ToString("N2") VNĐ</td>
+                            <td class="status">@order.Status</td>
+                            <td>
+                                @if (order.Status == "Đang xử Lý")
+                                {
+                                    <form asp-action="CancelDelivery" asp-controller="Delivery" asp-route-id="@order.Id" method="post" style="display:inline-block;"
+                                          onsubmit="return confirm('Bạn có chắc chắn muốn hủy đơn hàng này không?');">
+                                        <button type="submit" class="btn btn-sm btn-danger mt-1">Hủy đơn hàng</button>
+                                    </form>
+                                }
+                                @* No else condition needed here, as the cell remains empty if not "Đang xử Lý" *@
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

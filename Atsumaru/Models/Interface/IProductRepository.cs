@@ -12,5 +12,6 @@
         Task<bool> IsProductInWishlistAsync(int productId, string userId);
         Task<bool> ToggleWishlistAsync(int productId, string userId);
         Task<List<Product>> GetProductsInWishlistAsync(string userId);
+        Task<List<Product>> SearchProductsAsync(string searchTerm);
     }
 }

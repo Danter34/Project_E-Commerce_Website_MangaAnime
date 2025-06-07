@@ -1,0 +1,58 @@
+﻿@model Atsumaru.Models.ViewModel.UserProfileViewModel
+
+@{
+    ViewData["Title"] = "Thông tin cá nhân";
+}
+
+
+<div class="profile-container">
+    <div class="profile-header">
+        <h2>Thông Tin Cá Nhân</h2>
+        <div class="profile-avatar-wrapper">
+            @* Sử dụng Url.Content để đảm bảo đường dẫn ảnh đúng *@
+            <img src="@Url.Content( "https://static.vecteezy.com/system/resources/previews/001/991/212/non_2x/avatar-profile-pink-neon-icon-brick-wall-background-colour-neon-icon-vector.jpg")" alt="Ảnh đại diện" class="profile-avatar" />
+        </div>
+    </div>
+
+    @* Hiển thị thông báo thành công/lỗi *@
+    @if (ViewBag.SuccessMessage != null)
+    {
+        <div class="alert alert-success">@ViewBag.SuccessMessage</div>
+    }
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+    }
+
+    <div class="profile-info">
+        <p><strong>ID Người dùng:</strong> @Model.Id</p>
+        <p><strong>Tên đăng nhập:</strong> @Model.UserName</p>
+        <p><strong>Email:</strong> @Model.Email</p>
+    </div>
+    <a asp-controller="Profile" asp-action="ChangePassword"><button type="submit" class="btn btn-primary">Đổi mật khẩu</button></a>
+    <div class="favorite-products">
+        <h3>Sản phẩm yêu thích của bạn</h3>
+        @if (Model.FavoriteProducts != null && Model.FavoriteProducts.Any())
+        {
+            <div class="product-list">
+                @foreach (var product in Model.FavoriteProducts)
+                {
+                    <a asp-controller="Home" asp-action="Detail" asp-route-id="@product.Id" class="product-item" style="text-decoration:none;">
+                       
+                        <img src="@product.Image" alt="Alternate Text" />
+                        <h4>@product.Name</h4>
+                    </a>
+                }
+            </div>
+        }
+        else
+        {
+            <p class="no-favorites">Bạn chưa có sản phẩm yêu thích nào.</p>
+        }
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

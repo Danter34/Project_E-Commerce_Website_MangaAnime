@@ -1,0 +1,68 @@
+﻿@model Atsumaru.Models.ViewModel.ClassificationViewModel
+
+@{
+    ViewData["Title"] = $"Quản lý {Model.CurrentType}";
+    string currentType = ViewData["CurrentType"]?.ToString() ?? "Category"; // Lấy từ ViewData
+}
+
+<h1>Quản lý @currentType</h1>
+
+<p>
+    <a asp-action="Create" asp-route-type="@currentType" class="btn btn-primary">Thêm @currentType mới</a>
+</p>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<div class="mb-3">
+    Chọn loại:
+    <a asp-action="Index" asp-route-type="@Atsumaru.Models.ViewModel.ClassificationType.Category" class="btn @(currentType == "Category" ? "btn-info" : "btn-light")">Danh mục</a>
+    <a asp-action="Index" asp-route-type="@Atsumaru.Models.ViewModel.ClassificationType.Type" class="btn @(currentType == "Type" ? "btn-info" : "btn-light")">Loại truyện</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên @currentType</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.CurrentType == Atsumaru.Models.ViewModel.ClassificationType.Category && Model.Categories != null)
+        {
+            @foreach (var item in Model.Categories)
+            {
+                <tr>
+                    <td>@item.categoryname</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.categoryId" asp-route-type="@currentType" class="btn btn-sm btn-info">Chỉnh sửa</a> |
+                        <a asp-action="Details" asp-route-id="@item.categoryId" asp-route-type="@currentType" class="btn btn-sm btn-secondary">Chi tiết</a> |
+                        <a asp-action="Delete" asp-route-id="@item.categoryId" asp-route-type="@currentType" class="btn btn-sm btn-danger">Xóa</a>
+                    </td>
+                </tr>
+            }
+        }
+        else if (Model.CurrentType == Atsumaru.Models.ViewModel.ClassificationType.Type && Model.Types != null)
+        {
+            @foreach (var item in Model.Types)
+            {
+                <tr>
+                    <td>@item.typename</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.typeId" asp-route-type="@currentType" class="btn btn-sm btn-info">Chỉnh sửa</a> |
+                        <a asp-action="Details" asp-route-id="@item.typeId" asp-route-type="@currentType" class="btn btn-sm btn-secondary">Chi tiết</a> |
+                        <a asp-action="Delete" asp-route-id="@item.typeId" asp-route-type="@currentType" class="btn btn-sm btn-danger">Xóa</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr><td colspan="2">Không có dữ liệu nào.</td></tr>
+        }
+    </tbody>
+</table>

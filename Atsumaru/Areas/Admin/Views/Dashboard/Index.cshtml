@@ -1,0 +1,134 @@
+﻿@{
+    ViewData["Title"] = "Dashboard Admin";
+
+}
+
+<h1 class="text-white">Chào mừng đến trang Admin!</h1>
+
+<div class="row">
+    @* Card: Tổng số Sản phẩm *@
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2 bg-dark">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Tổng số Sản phẩm
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold" style="color: #f8f9fa;">
+
+                            @ViewBag.TotalProducts
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-box fa-2x" style="color: #6c757d;"></i> 
+                    </div>
+                </div>
+                <div class="mt-3">
+
+                    <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Index" class="btn btn-sm btn-outline-light">Xem chi tiết</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* Card: Tổng số Người dùng *@
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2 bg-dark">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                            Tổng số Người dùng
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold" style="color: #f8f9fa;">
+                            @ViewBag.TotalUsers
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-users fa-2x" style="color: #6c757d;"></i>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <a asp-area="Admin" asp-controller="AdminUsers" asp-action="Index" class="btn btn-sm btn-outline-light">Xem chi tiết</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* Card: Tổng số Đơn hàng *@
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100 py-2 bg-dark">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                            Tổng số Đơn hàng
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold" style="color: #f8f9fa;">
+                            @ViewBag.TotalDeliveries
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-shopping-cart fa-2x" style="color: #6c757d;"></i>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    @* Thay Deliveries bằng tên controller quản lý đơn hàng của bạn *@
+                    <a asp-area="Admin" asp-controller="AdminOrders" asp-action="Index" class="btn btn-sm btn-outline-light">Xem chi tiết</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2 bg-dark">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                            Tổng số Vai trò
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold" style="color: #f8f9fa;">
+                            @ViewBag.TotalRoles
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-user-tag fa-2x" style="color: #6c757d;"></i> @* Icon vai trò *@
+                    </div>
+                </div>
+                <div class="mt-3">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-danger shadow h-100 py-2 bg-dark">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                            Người dùng Admin
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold" style="color: #f8f9fa;">
+                            @ViewBag.AdminUsersCount
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-user-shield fa-2x" style="color: #6c757d;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

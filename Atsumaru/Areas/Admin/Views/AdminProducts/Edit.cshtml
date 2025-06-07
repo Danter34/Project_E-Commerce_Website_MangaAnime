@@ -1,0 +1,168 @@
+﻿@model Atsumaru.Models.Product
+@{
+    ViewData["Title"] = "Chỉnh sửa Sản phẩm";
+    // Layout đã được thiết lập trong _ViewStart.cshtml
+}
+
+<h1>Chỉnh sửa Sản phẩm</h1>
+
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            @* Hidden inputs for existing image paths * @
+            @* Rất quan trọng để giữ lại đường dẫn ảnh cũ nếu người dùng không upload ảnh mới *@
+            <input type="hidden" asp-for="Image" />
+            <input type="hidden" asp-for="Image1" />
+            <input type="hidden" asp-for="Image2" />
+            <input type="hidden" asp-for="Image3" />
+            <input type="hidden" asp-for="Image4" />
+            <input type="hidden" asp-for="Image5" />
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="tag" class="control-label"></label>
+                <input asp-for="tag" class="form-control" />
+                <span asp-validation-for="tag" class="text-danger"></span>
+            </div>
+
+            @* Xử lý Image chính (Image) *@
+            <div class="form-group">
+                <label class="control-label">Ảnh chính hiện tại:</label><br />
+                @if (!string.IsNullOrEmpty(Model.Image))
+                {
+                    <img src="@Model.Image" alt="@Model.Name" style="max-width: 150px; height: auto; margin-bottom: 10px;" />
+                }
+                <br />
+                <label asp-for="Image" class="control-label">Chọn ảnh chính mới (nếu muốn thay đổi):</label>
+                <input type="file" name="imageFile" class="form-control-file" accept="image/*" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+
+            
+            <div class="form-group">
+            <label class="control-label">Ảnh phụ 1 hiện tại:</label><br />
+            @if (!string.IsNullOrEmpty(Model.Image1))
+            {
+            <img src="@Model.Image1" alt="Ảnh phụ 1" style="max-width: 150px; height: auto; margin-bottom: 10px;" />
+            }
+            <br />
+            <label asp-for="Image1" class="control-label">Chọn ảnh phụ 1 mới (nếu muốn thay đổi):</label>
+            <input type="file" name="image1File" class="form-control-file" accept="image/*" />
+            <span asp-validation-for="Image1" class="text-danger"></span>
+            </div>
+
+           
+            <div class="form-group">
+                <label class="control-label">Ảnh phụ 2 hiện tại:</label><br />
+                @if (!string.IsNullOrEmpty(Model.Image2))
+                {
+                    <img src="@Model.Image2" alt="Ảnh phụ 2" style="max-width: 150px; height: auto; margin-bottom: 10px;" />
+                }
+                <br />
+                <label asp-for="Image2" class="control-label">Chọn ảnh phụ 2 mới (nếu muốn thay đổi):</label>
+                <input type="file" name="image2File" class="form-control-file" accept="image/*" />
+                <span asp-validation-for="Image2" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Ảnh phụ 3 hiện tại:</label><br />
+                @if (!string.IsNullOrEmpty(Model.Image3))
+                {
+                    <img src="@Model.Image3" alt="Ảnh phụ 3" style="max-width: 150px; height: auto; margin-bottom: 10px;" />
+                }
+                <br />
+                <label asp-for="Image3" class="control-label">Chọn ảnh phụ 3 mới (nếu muốn thay đổi):</label>
+                <input type="file" name="image3File" class="form-control-file" accept="image/*" />
+                <span asp-validation-for="Image3" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Ảnh phụ 4 hiện tại:</label><br />
+                @if (!string.IsNullOrEmpty(Model.Image4))
+                {
+                    <img src="@Model.Image4" alt="Ảnh phụ 4" style="max-width: 150px; height: auto; margin-bottom: 10px;" />
+                }
+                <br />
+                <label asp-for="Image4" class="control-label">Chọn ảnh phụ 4 mới (nếu muốn thay đổi):</label>
+                <input type="file" name="image4File" class="form-control-file" accept="image/*" />
+                <span asp-validation-for="Image4" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Ảnh phụ 5 hiện tại:</label><br />
+                @if (!string.IsNullOrEmpty(Model.Image5))
+                {
+                    <img src="@Model.Image5" alt="Ảnh phụ 5" style="max-width: 150px; height: auto; margin-bottom: 10px;" />
+                }
+                <br />
+                <label asp-for="Image5" class="control-label">Chọn ảnh phụ 5 mới (nếu muốn thay đổi):</label>
+                <input type="file" name="image5File" class="form-control-file" accept="image/*" />
+                <span asp-validation-for="Image5" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" type="number" step="0.01" /> @* Đảm bảo kiểu số và bước nhảy *@
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Detail" class="control-label"></label>
+                <textarea asp-for="Detail" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Detail" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <input class="form-check-input" asp-for="Hotupdate" />
+                <label class="form-check-label" asp-for="Hotupdate"></label>
+            </div>
+            <div class="form-group form-check">
+                <input class="form-check-input" asp-for="top10" />
+                <label class="form-check-label" asp-for="top10"></label>
+            </div>
+            <div class="form-group form-check">
+                <input class="form-check-input" asp-for="Newproduct" />
+                <label class="form-check-label" asp-for="Newproduct"></label>
+            </div>
+            <div class="form-group form-check">
+                <input class="form-check-input" asp-for="Lastupdate" />
+                <label class="form-check-label" asp-for="Lastupdate"></label>
+            </div>
+            <div class="form-group form-check">
+                <input class="form-check-input" asp-for="Banner" />
+                <label class="form-check-label" asp-for="Banner"></label>
+            </div>
+            <div class="form-group">
+                <label asp-for="categoryId" class="control-label"></label>
+                <select asp-for="categoryId" class="form-control" asp-items="ViewBag.categoryId"></select>
+                <span asp-validation-for="categoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="typeId" class="control-label"></label>
+                <select asp-for="typeId" class="form-control" asp-items="ViewBag.typeId"></select>
+                <span asp-validation-for="typeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Lưu" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Quay lại danh sách</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

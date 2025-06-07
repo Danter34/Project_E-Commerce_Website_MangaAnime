@@ -1,0 +1,54 @@
+﻿/* Basic Admin CSS for dark theme - Consider moving to admin_styles.css */
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: #212529; /* Dark background */
+    color: #f8f9fa; /* Light text */
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #343a40; /* Darker sidebar */
+    padding-top: 20px;
+    flex-shrink: 0; /* Prevents sidebar from shrinking */
+}
+
+    .sidebar .nav-link {
+        color: #adb5bd; /* Lighter link color */
+        padding: 10px 15px;
+        display: block;
+    }
+
+        .sidebar .nav-link:hover {
+            background-color: #495057;
+            color: #fff;
+            text-decoration: none;
+        }
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #212529; /* Main content area background */
+}
+
+.navbar {
+    background-color: #343a40;
+    margin-bottom: 20px;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+.table {
+    color: #f8f9fa; /* Table text color */
+}
+
+    .table thead th {
+        border-bottom: 2px solid #495057;
+    }
+
+    .table td, .table th {
+        border-top: 1px solid #495057;
+    }
+
+.btn {
+    margin-right: 5px;
+}

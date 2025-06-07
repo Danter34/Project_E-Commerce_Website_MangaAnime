@@ -1,0 +1,29 @@
+﻿@model Atsumaru.Models.ViewModel.ClassificationViewModel
+
+@{
+    string currentType = ViewData["CurrentType"]?.ToString() ?? "Unknown";
+    ViewData["Title"] = $"Xóa {currentType}";
+}
+
+<h1>Xóa @currentType</h1>
+
+<h3>Bạn có chắc muốn xóa @currentType này không?</h3>
+<div>
+    <h4>@currentType</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            Tên @currentType:
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" name="currentType" value="@currentType" /> @* Đảm bảo tên tham số khớp *@
+        <input type="submit" value="Xóa" class="btn btn-danger" /> |
+        <a asp-action="Index" asp-route-type="@currentType">Quay lại danh sách</a>
+    </form>
+</div>

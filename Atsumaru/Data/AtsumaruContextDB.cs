@@ -18,6 +18,7 @@ namespace Atsumaru.Data
         public DbSet<Delivery> Deliverys { get; set; }
         public DbSet<DeliveryDetail> DeliveryDetails { get; set; }
         public DbSet<WishlistItem> WishlistItems { get; set; }
+        public DbSet<Contact> ContactMessages { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>()

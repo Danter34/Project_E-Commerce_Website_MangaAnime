@@ -1,0 +1,90 @@
+﻿@model Atsumaru.Models.Delivery
+
+@{
+    ViewData["Title"] = "Chi tiết Đơn hàng";
+}
+
+<h1>Chi tiết Đơn hàng</h1>
+
+<div>
+    <h4>Đơn hàng</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.DeliveryPlaced)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.DeliveryPlaced)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.DeliveryTotal)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.DeliveryTotal)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+    </dl>
+
+    <h5>Chi tiết Sản phẩm trong Đơn hàng</h5>
+    @if (Model.DeliveryDetails != null && Model.DeliveryDetails.Any())
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Giá</th>
+                    <th>Tổng cộng</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var detail in Model.DeliveryDetails)
+                {
+                    <tr>
+                        <td>@(detail.Product?.Name ?? "Sản phẩm không xác định")</td>
+                        <td>@detail.Quantity</td>
+                        <td>@detail.Price đ</td>
+                        <td>@((detail.Quantity * detail.Price).ToString())đ</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Không có chi tiết sản phẩm cho đơn hàng này.</p>
+    }
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-sm btn-info">Cập nhật trạng thái</a> |
+    <a asp-action="Index">Quay lại danh sách</a>
+</div>

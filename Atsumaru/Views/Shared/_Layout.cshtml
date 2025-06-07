@@ -1,6 +1,23 @@
-﻿@inject IHttpContextAccessor HttpContextAccessor
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject Atsumaru.Data.AtsumaruContextDB Context
+@inject UserManager<IdentityUser> UserManager
+@using Microsoft.EntityFrameworkCore
+@inject IHttpContextAccessor HttpContextAccessor
 @{
-    var cartCount = HttpContextAccessor?.HttpContext?.Session.GetInt32("CartCount")?? 0;
+    var cartCount = HttpContextAccessor?.HttpContext?.Session.GetInt32("CartCount") ?? 0;
+    // Kiểm tra xem người dùng có phải là Admin hay không
+    bool isAdmin = false;
+    if (SignInManager.IsSignedIn(User)) // Kiểm tra nếu người dùng đã đăng nhập
+    {
+        var user = await UserManager.GetUserAsync(User); // Lấy thông tin người dùng
+        if (user != null)
+        {
+            isAdmin = await UserManager.IsInRoleAsync(user, "Admin"); // Kiểm tra vai trò Admin
+        }
+    }
+    var categories = await Context.categories.OrderBy(c => c.categoryname).ToListAsync(); // THÊM DÒNG NÀY
+    var types = await Context.types.OrderBy(t => t.typename).ToListAsync(); // THÊM DÒNG NÀY
 }
 <!DOCTYPE html>
 <html lang="vi">
@@ -9,13 +26,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atsumaru</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-    <link rel="stylesheet" href="~/assets/css/styles.css">
+    <link rel="stylesheet" href="~/assets/css/styles.css" />
     <link rel="stylesheet" href="~/assets/css/ct-sp.css">
     <link rel="stylesheet" href="~/assets/css/sp.css">
     <link rel="stylesheet" href="~/assets/css/cart.css">
     <link rel="stylesheet" href="~/assets/css/emty.css">
     <link rel="stylesheet" href="~/assets/css/delivery.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css" />
+    <link rel="stylesheet" href="~/assets/css/order.css">
+    <link rel="stylesheet" href="~/assets/css/profile.css">
 </head>
 <body>
     <div class="wrapper">
@@ -23,38 +42,57 @@
             <div class="op">
                 <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" id="leftMenu" style="display: none;">
                     <button onclick="closeLeftMenu()" class="w3-bar-item w3-button w3-large"> &times;</button>
-                    <a a asp-controller="Home" asp-action="Index" style="text-decoration: none;" class="w3-bar-item w3-button">Home</a>
+                    <a asp-controller="Home" asp-action="Index" style="text-decoration: none;" class="w3-bar-item w3-button">Home</a>
                     <div class="dropdown">
                         <a href="#" class="w3-bar-item w3-button">Thể Loại <i class="fa-solid fa-caret-down"></i></a>
                         <div class="dropdown-content">
-                            <a asp-controller="Products" asp-action="ProductsByCategory" asp-route-cateId="11">Shounen</a>
-                            <a asp-controller="Products" asp-action="ProductsByCategory" asp-route-cateId="21">Seinen</a>
-                            <a asp-controller="Products" asp-action="ProductsByCategory" asp-route-cateId="31"> Kodomo</a>
-                            <a asp-controller="Products" asp-action="ProductsByCategory" asp-route-cateId="41">Shoujo</a>
+                            @foreach (var category in categories)
+                            {
+                                <a asp-controller="Products" asp-action="ProductsByCategory" asp-route-cateId="@category.categoryId">@category.categoryname</a>
+                            }
                         </div>
                     </div>
                     <div class="dropdown">
                         <a href="#" class="w3-bar-item w3-button">Loại Truyện <i class="fa-solid fa-caret-down"></i></a>
                         <div class="dropdown-content">
-                            <a asp-controller="Products" asp-action="ProductsByType" asp-route-typeId="12">Manga</a>
-                            <a asp-controller="Products" asp-action="ProductsByType" asp-route-typeId="22">Manhua</a>
-                            <a asp-controller ="Products" asp-action="ProductsByType" asp-route-typeId="32">Manhwua</a>
+                            @foreach (var type in types)
+                            {
+                                <a asp-controller="Products" asp-action="ProductsByType" asp-route-typeId="@type.typeId">@type.typename</a>
+                            }
                         </div>
                     </div>
                     <a asp-controller="Cart" asp-action="Index" class="w3-bar-item w3-button"><i class="fa-solid fa-cart-shopping"></i> Giỏ Hàng</a>
                     <a asp-controller="Home" asp-action="Wishlist" class="w3-bar-item w3-button"><i class="fa-regular fa-heart"></i> Wishlist</a>
-                    <partial name="_LoginPartial"></partial>
+                    <a asp-controller="Delivery" asp-action="MyOrders" class="w3-bar-item w3-button"><i class="fa-solid fa-bag-shopping"></i> Đơn Hàng Của Bạn</a>
                     
+                   
+
+                    @* THÊM DÒNG NÀY VÀO ĐÂY *@
+                    @if (isAdmin)
+                    {
+                        <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="w3-bar-item w3-button">
+                            <i class="fa-solid fa-user-shield"></i> Quản lý Admin
+                        </a>
+                    }
+                    @* KẾT THÚC PHẦN THÊM MỚI *@
+
+                    <partial name="_LoginPartial"></partial>
+                    <a asp-controller="Contact" asp-action="Index" class="w3-bar-item w3-button"> <i class="fa-solid fa-message"></i> Contact</a>
                 </div>
                 <div class="">
                     <button class="menu" onclick="openLeftMenu()"><i class="fa-solid fa-bars"></i></button>
                 </div>
             </div>
             <div class="logo"><span style="color: blueviolet;">atsu</span><span style="color: #fff;">maru</span></div>
-            <div class="search"><input type="text" placeholder="Tìm kiếm"><button><i class="fa-solid fa-magnifying-glass"></button></i></div>
+            <div class="search">
+                <form asp-controller="Home" asp-action="Search" method="get">
+                    <input style="color: #fff" type="text" name="searchTerm" placeholder="Tìm kiếm" value="@ViewBag.CurrentSearchTerm">
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
             <div class="h-right">
                 <a asp-controller="Cart" asp-action="Index"><button><i class="fa-solid fa-cart-shopping"><span id="cart-quantity-badge" class="cart-quantity-badge">@cartCount</span></i></button> </a>
-                <button><i class="fa-solid fa-user"></i></button>
+                <a asp-controller="Profile" asp-action="Index"><button><i class="fa-solid fa-user"></i></button></a>
             </div>
         </div>
     </div>
