@@ -1,22 +1,27 @@
-﻿@model Atsumaru.Models.Product
+﻿@model Atsumaru.Models.ViewModel.ProductDetailViewModel
+
 <div class="wrap">
     <div>
-        <div class="info-sp" style="background-color:rgb(23, 23, 23);  border-radius: 20px; margin-top: 50px;">
+        <div class="info-sp" style="background-color:rgb(23, 23, 23); border-radius: 20px; margin-top: 50px; position: relative;">
             <div class="sp">
-                <img style="width: 480px; height: 400px;" src="@Model.Image" alt="">
+                <img style="width: 480px; height: 400px;" src="@Model.Product.Image" alt="">
             </div>
             <div class="info">
                 <div style="display: flex; justify-content: space-between;">
-                    <h2 style="font-weight: bold; ">@Model.Price₫</h2>
+                    <h2 style="font-weight: bold;">@Model.Product.Price₫</h2>
+
+                    <i class="fa-solid fa-heart wishlist-inline-icon"
+                       data-product-id="@Model.Product.Id"
+                       style="cursor: pointer; font-size: 1.8rem; color: @(Model.IsInWishlist ? "blueviolet" : "#ccc"); position: absolute; top: 20px; right: 20px; z-index: 10;"></i>
                 </div>
-                <a asp-controller="Cart" asp-action="AddCart" asp-route-pId="@Model.Id">
+                <a asp-controller="Cart" asp-action="AddCart" asp-route-pId="@Model.Product.Id">
                     <button style=" padding: 5px 10px; border-radius:10px ;width: 100%;">
                         Thêm vào giỏ
                     </button>
                 </a>
-                <div><p>@Model.tag </p></div>
+                <div><p>@Model.Product.tag </p></div>
                 <p>
-                    @Model.Detail
+                    @Model.Product.Detail
                 </p>
             </div>
         </div>
@@ -25,33 +30,73 @@
             <button class="nav prev"><i class="fa-solid fa-angle-left"></i></button>
             <div class="slide">
                 <div class="card" style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                     onmouseenter="this.style.transform='none'; this.style.boxShadow='none';"
-                     onmouseleave="this.style.transform='none'; this.style.boxShadow='none';">
-                    <img src="@Model.Image1" alt="">
+                                onmouseenter="this.style.transform='none'; this.style.boxShadow='none';"
+                                onmouseleave="this.style.transform='none'; this.style.boxShadow='none';">
+                    <img src="@Model.Product.Image1" alt="">
                 </div>
                 <div class="card" style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                     onmouseenter="this.style.transform='none'; this.style.boxShadow='none';"
-                     onmouseleave="this.style.transform='none'; this.style.boxShadow='none';">
-                    <img src="@Model.Image2" alt="">
+                                onmouseenter="this.style.transform='none'; this.style.boxShadow='none';"
+                                onmouseleave="this.style.transform='none'; this.style.boxShadow='none';">
+                    <img src="@Model.Product.Image2" alt="">
                 </div>
                 <div class="card" style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                     onmouseenter="this.style.transform='none'; this.style.boxShadow='none';"
-                     onmouseleave="this.style.transform='none'; this.style.boxShadow='none';">
-                    <img src="@Model.Image3" alt="">
+                                onmouseenter="this.style.transform='none'; this.style.boxShadow='none';"
+                                onmouseleave="this.style.transform='none'; this.style.boxShadow='none';">
+                    <img src="@Model.Product.Image3" alt="">
                 </div>
                 <div class="card" style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                     onmouseenter="this.style.transform='none'; this.style.boxShadow='none';"
-                     onmouseleave="this.style.transform='none'; this.style.boxShadow='none';">
-                    <img src="@Model.Image4" alt="">
+                                onmouseenter="this.style.transform='none'; this.style.boxShadow='none';"
+                                onmouseleave="this.style.transform='none'; this.style.boxShadow='none';">
+                    <img src="@Model.Product.Image4" alt="">
                 </div>
                 <div class="card" style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                     onmouseenter="this.style.transform='none'; this.style.boxShadow='none';"
-                     onmouseleave="this.style.transform='none'; this.style.boxShadow='none';">
-                    <img src="@Model.Image5" alt="">
+                                onmouseenter="this.style.transform='none'; this.style.boxShadow='none';"
+                                onmouseleave="this.style.transform='none'; this.style.boxShadow='none';">
+                    <img src="@Model.Product.Image5" alt="">
                 </div>
             </div>
             <button class="nav next"><i class="fa-solid fa-angle-right"></i></button>
         </div>
     </div>
-   
 </div>
+
+@section Scripts {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // THAY ĐỔI TẠI ĐÂY: Dùng class mới cho selector
+            $('.wishlist-inline-icon').on('click', function () {
+                var heartIcon = $(this);
+                var productId = heartIcon.data('product-id');
+
+                $.ajax({
+                    url: '@Url.Action("ToggleWishlist", "Home")', // Gọi action ToggleWishlist trong HomeController
+                    type: 'POST',
+                    data: { productId: productId },
+                    success: function (response) {
+                        if (response.success) {
+                            if (response.isAdded) {
+                                // THAY ĐỔI TẠI ĐÂY: Thay đổi thuộc tính style trực tiếp
+                                heartIcon.css('color', 'blueviolet');
+                                alert(response.message);
+                            } else {
+                                // THAY ĐỔI TẠI ĐÂY: Thay đổi thuộc tính style trực tiếp
+                                heartIcon.css('color', '#ccc');
+                                alert(response.message);
+                            }
+                        } else {
+                            alert(response.message);
+                            if (response.redirectToLogin) {
+                                window.location.href = '/Identity/Account/Login';
+                            }
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("AJAX Error:", status, error);
+                        alert("Đã xảy ra lỗi khi cập nhật danh sách yêu thích. Vui lòng thử lại.");
+                    }
+                });
+            });
+        });
+    </script>
+}

@@ -42,7 +42,7 @@
                         </div>
                     </div>
                     <a asp-controller="Cart" asp-action="Index" class="w3-bar-item w3-button"><i class="fa-solid fa-cart-shopping"></i> Giỏ Hàng</a>
-                    <a href="#" class="w3-bar-item w3-button"><i class="fa-regular fa-heart"></i> Wishlist</a>
+                    <a asp-controller="Home" asp-action="Wishlist" class="w3-bar-item w3-button"><i class="fa-regular fa-heart"></i> Wishlist</a>
                     <partial name="_LoginPartial"></partial>
                     
                 </div>
@@ -114,5 +114,6 @@
     <script src="~/assets/js/script.js"></script>
     <script src="~/assets/js/sp.js"></script>
     <script src="~/assets/js/delivery.js"></script>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

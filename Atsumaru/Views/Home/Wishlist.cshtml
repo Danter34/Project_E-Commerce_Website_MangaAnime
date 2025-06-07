@@ -1,0 +1,33 @@
+﻿@model List<Atsumaru.Models.Product>
+
+<div class="wraps">
+    <h2 style="color: #fff; text-align: center; margin-bottom: 30px;">Sản phẩm yêu thích của tôi</h2>
+    @if (Model != null && Model.Any())
+    {
+        <div class="slider-contais">
+            <div class="slides">
+                @foreach (var item in Model)
+                {
+                    <a style="text-decoration: none;" asp-controller="Home" asp-action="Detail" asp-route-id="@item.Id">
+                        <div class="cards">
+                            <img src="@item.Image" alt="@item.Name">
+                            <p>@item.Name</p>
+                        </div>
+                    </a>
+                }
+            </div>
+        </div>
+        <div class="cens">
+            <button class="prevs"><i class="fa-solid fa-angles-left"></i></button>
+            <span class="page-numbers" style="color: #fff;"></span>
+            <button class="nexts"><i class="fa-solid fa-angles-right"></i></button>
+        </div>
+    }
+    else
+    {
+        <p style="color: #fff; text-align: center;">Bạn chưa thêm sản phẩm nào vào danh sách yêu thích.</p>
+        <div style="text-align: center; margin-top: 20px;">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Khám phá sản phẩm ngay!</a>
+        </div>
+    }
+</div>

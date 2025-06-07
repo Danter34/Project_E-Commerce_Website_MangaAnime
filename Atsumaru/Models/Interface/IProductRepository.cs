@@ -9,5 +9,8 @@
         IEnumerable<Product> GetNewproduct();
         IEnumerable<Product> GetLastupdate();
         Product GetProductDetail(int id);
+        Task<bool> IsProductInWishlistAsync(int productId, string userId);
+        Task<bool> ToggleWishlistAsync(int productId, string userId);
+        Task<List<Product>> GetProductsInWishlistAsync(string userId);
     }
 }

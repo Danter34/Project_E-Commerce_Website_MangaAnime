@@ -17,6 +17,7 @@ namespace Atsumaru.Data
         public DbSet<Cart> Carts { get; set; }
         public DbSet<Delivery> Deliverys { get; set; }
         public DbSet<DeliveryDetail> DeliveryDetails { get; set; }
+        public DbSet<WishlistItem> WishlistItems { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>()
@@ -28,6 +29,11 @@ namespace Atsumaru.Data
                 .HasOne(p => p.type)
                 .WithMany(t => t.Products)
                 .HasForeignKey(p => p.typeId);
+
+            modelBuilder.Entity<WishlistItem>()
+               .HasOne(wi => wi.Product)
+               .WithMany() 
+               .HasForeignKey(wi => wi.ProductId);
 
             base.OnModelCreating(modelBuilder);
 
