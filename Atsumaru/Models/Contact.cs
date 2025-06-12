@@ -19,5 +19,7 @@ namespace Atsumaru.Models
         public string Message { get; set; }
 
         public DateTime SentDate { get; set; } = DateTime.Now;
+        public string? AdminReply { get; set; }
+        public DateTime? ReplyDate { get; set; }
     }
 }

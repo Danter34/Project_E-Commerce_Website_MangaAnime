@@ -8,7 +8,7 @@
             </div>
             <div class="info">
                 <div style="display: flex; justify-content: space-between;">
-                    <h2 style="font-weight: bold;">@Model.Product.Price₫</h2>
+                    <h2 style="font-weight: bold;">@Model.Product.Price.ToString("N0")₫</h2>
 
                     <i class="fa-solid fa-heart wishlist-inline-icon"
                        data-product-id="@Model.Product.Id"

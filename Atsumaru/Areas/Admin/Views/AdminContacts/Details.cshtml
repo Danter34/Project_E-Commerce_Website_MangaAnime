@@ -1,0 +1,89 @@
+﻿@model Atsumaru.Models.Contact
+
+@{
+    ViewData["Title"] = "Chi tiết Liên hệ & Phản hồi";
+}
+
+<h1>Chi tiết Liên hệ</h1>
+
+<div>
+    <h4>Tin nhắn từ: @Html.DisplayFor(model => model.Name)</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-10">
+            <a href="mailto:@Model.Email">@Html.DisplayFor(model => model.Email)</a>
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Message)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Message)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SentDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SentDate)
+        </dd>
+    </dl>
+</div>
+
+<hr />
+
+@* Form phản hồi của Admin *@
+<h2>Phản hồi tin nhắn</h2>
+<form asp-action="Reply" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="Name" />
+    <input type="hidden" asp-for="Email" />
+    <input type="hidden" asp-for="Message" />
+    <input type="hidden" asp-for="SentDate" />
+    @* Giữ lại giá trị AdminReply và ReplyDate hiện có nếu đã có phản hồi *@
+    <input type="hidden" asp-for="AdminReply" />
+    <input type="hidden" asp-for="ReplyDate" />
+
+
+    <div class="form-group">
+        <label for="adminReplyContent" class="control-label">Nội dung phản hồi:</label>
+        <textarea id="adminReplyContent" name="adminReplyContent" class="form-control" rows="5">@Model.AdminReply</textarea>
+        @* Thêm validation nếu cần cho adminReplyContent *@
+        @* <span asp-validation-for="AdminReply" class="text-danger"></span> *@
+    </div>
+    <div class="form-group mt-3">
+        <input type="submit" value="Gửi phản hồi" class="btn btn-primary" />
+    </div>
+</form>
+
+<hr />
+
+@* Hiển thị lịch sử phản hồi nếu có *@
+@if (!string.IsNullOrEmpty(Model.AdminReply))
+{
+    <h3>Lịch sử phản hồi</h3>
+    <p>
+        <strong>Đã phản hồi vào:</strong> @Model.ReplyDate?.ToString("dd/MM/yyyy HH:mm")
+    </p>
+    <div class="alert alert-info">
+        @Model.AdminReply
+    </div>
+}
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Atsumaru.Models.Contact>
+
+@{
+    ViewData["Title"] = "Xem Phản hồi của bạn";
+}
+
+<link rel="stylesheet" href="~/assets/css/mes.css">
+
+
+
+<div class="custom-container">
+    <h1 class="">Xem Phản hồi của bạn</h1>
+
+    <div class="custom-row">
+        <div class="custom-col-8">
+            <div class="form-wrapper-box">
+                <p class="lead">Nhập địa chỉ email của bạn để xem lịch sử tin nhắn và phản hồi từ quản trị viên.</p>
+                <form asp-action="MyMessages" method="post" class="search-form">
+                    @Html.AntiForgeryToken()
+                    <input type="email" class="form-control" name="emailToSearch" placeholder="Địa chỉ email của bạn" aria-label="Địa chỉ email của bạn" value="@ViewBag.EmailToSearch" />
+                    <button type="submit" class="custom-btn">Tìm kiếm</button>
+                </form>
+                @if (ViewData.ModelState.ContainsKey("emailToSearch") && ViewData.ModelState["emailToSearch"].Errors.Any())
+                {
+                    <div class="text-danger">@ViewData.ModelState["emailToSearch"].Errors.First().ErrorMessage</div>
+                }
+            </div>
+
+            @if (ViewBag.NoMessagesMessage != null)
+            {
+                <div class="custom-alert alert-warning-custom">
+                    @ViewBag.NoMessagesMessage
+                </div>
+            }
+
+            @if (Model != null && Model.Any())
+            {
+                <h3 class="">Các tin nhắn của bạn (@Model.Count()):</h3>
+                @foreach (var contact in Model)
+                {
+                    <div class="message-card">
+                        <p class="message-header">Gửi lúc: @contact.SentDate.ToString("dd/MM/yyyy HH:mm")</p>
+                        <p><strong>Nội dung tin nhắn:</strong> @contact.Message</p>
+
+                        @if (!string.IsNullOrEmpty(contact.AdminReply))
+                        {
+                            <div class="admin-reply-box">
+                                <p><strong>Phản hồi từ Admin:</strong></p>
+                                <p>@contact.AdminReply</p>
+                                @if (contact.ReplyDate.HasValue)
+                                {
+                                    <small class="text-muted-custom">Đã phản hồi vào: @contact.ReplyDate.Value.ToString("dd/MM/yyyy HH:mm")</small>
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            <p class="text-info-custom">Admin chưa phản hồi tin nhắn này.</p>
+                        }
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

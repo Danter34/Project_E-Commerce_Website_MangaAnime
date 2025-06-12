@@ -30,6 +30,8 @@
         <p><strong>Email:</strong> @Model.Email</p>
     </div>
     <a asp-controller="Profile" asp-action="ChangePassword"><button type="submit" class="btn btn-primary">Đổi mật khẩu</button></a>
+    <a asp-controller="Contact" asp-action="MyMessages"><button type="submit" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Phản Hồi</button></a>
+    
     <div class="favorite-products">
         <h3>Sản phẩm yêu thích của bạn</h3>
         @if (Model.FavoriteProducts != null && Model.FavoriteProducts.Any())

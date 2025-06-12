@@ -11,7 +11,7 @@
             <div class="item">
                 <img src="@item.Product.Image" alt="">
                 <span class="name">@item.Product.Name</span>
-                <span class="price">@item.Product.Price</span>
+                <span class="price">@item.Product.Price.ToString("N0")đ</span>
                 <div class="plus">
                         <form asp-controller="Cart" asp-action="IncreaseQty" method="post" style="display:inline;">
                             <input type="hidden" name="productId" value="@item.Product.Id" />
@@ -51,8 +51,8 @@
                 <p>Thanh Toán</p>
             </div>
             <div class="right">
-                <p>@grandTotal.ToString()đ</p>
-                <p>@grandTotal.ToString()đ</p>
+                <p>@grandTotal.ToString("N0")đ</p>
+                <p>@grandTotal.ToString("N0")đ</p>
             </div>
         </div>
         <a asp-controller="Delivery" asp-action="Checkout">

@@ -1,0 +1,224 @@
+﻿/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #1a1a1a; /* Dark background color for the body */
+    color: #e0e0e0; /* Light text color for general content */
+    margin: 0;
+    padding: 0;
+}
+
+/* Container for the whole page content */
+.custom-container {
+    max-width: 960px;
+    margin: 40px auto; /* Margin top/bottom 40px, auto for left/right to center */
+    padding: 0 15px; /* Padding on sides */
+    background-color: transparent; /* Ensure no background for the container itself */
+}
+
+/* Row simulation (Flexbox for alignment) */
+.custom-row {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    margin-left: -15px; /* Counteract padding from columns */
+    margin-right: -15px; /* Counteract padding from columns */
+    justify-content: center; /* Center columns horizontally */
+}
+
+/* Column simulation (main content area) */
+.custom-col-8 {
+    flex-basis: 66.666667%; /* Equivalent to col-md-8 */
+    max-width: 66.666667%; /* Equivalent to col-md-8 */
+    padding: 0 15px; /* Padding for column content */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Headings */
+h1, h3 {
+    text-align: center;
+    color: #8A2BE2; /* Blueviolet for main headings */
+    margin-top: 0; /* Reset default margin */
+    margin-bottom: 20px; /* Custom margin bottom */
+}
+
+h3 {
+    margin-top: 40px; /* Custom margin top for H3 */
+}
+
+/* Form Wrapper Box */
+.form-wrapper-box {
+    background-color: #2a2a2a;
+    border: 1px solid #4a4a4a;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    text-align: center; /* Center text and inline elements like the paragraph */
+}
+
+    .form-wrapper-box p {
+        margin-bottom: 15px;
+        color: #a0a0a0;
+        font-size: 1.1em; /* Equivalent to Bootstrap's lead class */
+    }
+
+/* Form and Input Group - KHẮC PHỤC LỖI LỆCH TẠI ĐÂY */
+.search-form {
+    display: flex; /* Use flexbox for input group */
+    justify-content: center; /* Căn giữa toàn bộ input-group */
+    align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+    width: 100%; /* Make form take full width of its parent */
+    max-width: 500px; /* Limit width of the input group */
+    margin: 0 auto; /* Center the form itself within form-wrapper-box */
+    box-sizing: border-box;
+}
+
+.form-control {
+    display: block; /* Ensure it's a block-level element */
+    flex-grow: 1; /* Allow input to grow and take available space */
+    padding: 10px 15px;
+    font-size: 1em;
+    line-height: 1.5;
+    background-color: #3a3a3a;
+    color: #e0e0e0;
+    border: 1px solid #6a6a6a;
+    border-right: none; /* Bỏ border phải để nối với button */
+    border-radius: 5px 0 0 5px; /* Bo góc chỉ bên trái */
+    box-sizing: border-box;
+}
+
+    .form-control::placeholder {
+        color: #909090;
+    }
+
+    .form-control:focus {
+        outline: none; /* Remove default outline */
+        border-color: #8A2BE2;
+        box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.25); /* Custom focus shadow */
+    }
+
+/* Button */
+.custom-btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #8A2BE2;
+    border: 1px solid #8A2BE2;
+    border-radius: 0 5px 5px 0; /* Bo góc chỉ bên phải */
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    /* margin-left: 10px; */ /* Bỏ margin-left nếu muốn liền nhau */
+}
+
+    .custom-btn:hover {
+        background-color: #6A1EB8;
+        border-color: #6A1EB8;
+    }
+
+/* Validation and Messages */
+.text-danger {
+    color: #FF6347; /* Tomato red */
+    font-size: 0.9em;
+    text-align: center;
+    margin-top: 10px; /* Space above error message */
+    display: block; /* Ensure it takes full width */
+}
+
+.custom-alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.alert-warning-custom { /* Replaces Bootstrap's alert alert-warning */
+    color: #FFD700; /* Gold */
+    background-color: #3a3a3a;
+    border-color: #6a6a6a;
+}
+
+/* Message Cards */
+.message-card {
+    background-color: #2a2a2a;
+    border: 1px solid #4a4a4a;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    color: #e0e0e0;
+}
+
+    .message-card p {
+        margin-bottom: 10px; /* Add some space below paragraphs in card */
+    }
+
+.message-header {
+    font-weight: bold;
+    color: #8A2BE2; /* Blueviolet */
+    margin-bottom: 10px;
+}
+
+.admin-reply-box {
+    background-color: #3a3a3a;
+    border-left: 5px solid #8A2BE2; /* Blueviolet border */
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 4px;
+    color: #e0e0e0;
+}
+
+    .admin-reply-box p {
+        margin-bottom: 5px; /* Adjust spacing inside reply box */
+    }
+
+.text-muted-custom { /* Replaces Bootstrap's text-muted */
+    color: #a0a0a0 !important;
+    font-size: 0.85em; /* Smaller font for timestamp */
+    display: block; /* Ensure it's on its own line */
+    margin-top: 10px;
+}
+
+.text-info-custom { /* Replaces Bootstrap's text-info */
+    color: #7B68EE !important; /* Medium slate blue */
+    margin-top: 15px;
+    display: block;
+}
+
+.no-messages {
+    color: #FFD700;
+    background-color: #3a3a3a;
+    border-color: #6a6a6a;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .custom-col-8 {
+        flex-basis: 100%; /* Full width on small screens */
+        max-width: 100%;
+    }
+
+    .custom-container {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .search-form {
+        flex-direction: column; /* Stack input and button vertically */
+        align-items: stretch; /* Stretch items to full width */
+    }
+
+    .form-control {
+        border-radius: 5px; /* Full border-radius when stacked */
+        border-right: 1px solid #6a6a6a; /* Restore right border */
+        margin-bottom: 10px; /* Space between input and button */
+    }
+
+    .custom-btn {
+        margin-left: 0; /* Remove left margin when stacked */
+        margin-top: 0; /* No extra top margin needed */
+        border-radius: 5px; /* Full border-radius when stacked */
+    }
+}

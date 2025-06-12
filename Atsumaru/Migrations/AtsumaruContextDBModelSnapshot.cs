@@ -54,6 +54,9 @@ namespace Atsumaru.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("AdminReply")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -68,6 +71,9 @@ namespace Atsumaru.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime?>("ReplyDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("SentDate")
                         .HasColumnType("datetime2");
