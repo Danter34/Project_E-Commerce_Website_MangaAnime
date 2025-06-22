@@ -1,4 +1,5 @@
 ﻿@model Atsumaru.Models.Contact
+@using System.Security.Claims // Needed to access User.FindFirstValue
 
 <style>
     /* Overall Section Background */
@@ -13,7 +14,6 @@
         margin-right: auto;
         padding-left: 15px;
         padding-right: 15px;
-        /* background-color: rgb(23, 23, 23); Removed as it's now on the section */
     }
 
     .custom-row {
@@ -67,7 +67,6 @@
     }
 
     .custom-form {
-        /* padding: 20px; Removed, padding is now on custom-form-wrapper */
         border: none; /* No border for the form itself, as per image */
         border-radius: 0; /* No border radius on the form, it's on the wrapper */
         box-shadow: none; /* No shadow on the form itself */
@@ -194,6 +193,7 @@
         margin-top: 1.5rem;
     }
 </style>
+
 <section class="contact-form-section" id="form7-q">
     <div class="custom-container">
         <div class="section-header">
@@ -211,18 +211,33 @@
                         Chúng Tôi Sẽ Liên Hệ Sớm Nhất có Thể
                     </p>
 
+                    @* Display general validation errors (e.g., if Model.IsValid is false) *@
                     <div asp-validation-summary="ModelOnly" class="validation-summary-errors mb-3"></div>
+
+                    @* Display success/error messages from ViewBag *@
+                    @if (ViewBag.SuccessMessage != null)
+                    {
+                        <div class="message-success mt-4">@ViewBag.SuccessMessage</div>
+                    }
+                    @if (ViewBag.ErrorMessage != null)
+                    {
+                        <div class="message-error mt-4">@ViewBag.ErrorMessage</div>
+                    }
 
                     <div class="form-fields-area custom-row">
                         <div class="custom-col-full form-group mb-3">
-                            <input asp-for="Name" type="text" class="custom-form-control" placeholder="Name" />
+                            <input asp-for="Name" type="text" class="custom-form-control" placeholder="Name"
+                                   value="@(User.Identity.IsAuthenticated && !string.IsNullOrEmpty(User.Identity.Name) ? User.Identity.Name : Model?.Name)" />
                             <span asp-validation-for="Name" class="validation-text-danger"></span>
                         </div>
 
+                        @* REMOVED: Email input field - email will be handled by the controller from the authenticated user's claims *@
+                        @*
                         <div class="custom-col-full form-group mb-3">
-                            <input asp-for="Email" type="email" class="custom-form-control" placeholder="Email" />
-                            <span asp-validation-for="Email" class="validation-text-danger"></span>
+                        <input asp-for="Email" type="email" class="custom-form-control" placeholder="Email" />
+                        <span asp-validation-for="Email" class="validation-text-danger"></span>
                         </div>
+                        *@
 
                         <div class="custom-col-full form-group mb-3">
                             <textarea asp-for="Message" class="custom-form-control" rows="5" placeholder="Message"></textarea>
@@ -230,20 +245,36 @@
                         </div>
 
                         <div class="custom-col-auto form-button-area align-center">
-                            <button type="submit" class="custom-btn custom-btn-primary">Send</button>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <button type="submit" class="custom-btn custom-btn-primary">Gửi tin nhắn</button>
+                                <p class="mt-3 text-sm" style="color: #B0B0B0;">Email của bạn (<span style="color: #00A693; font-weight: bold;">@User.FindFirstValue(ClaimTypes.Email)</span>) sẽ được sử dụng để liên hệ.</p>
+                            }
+                            else
+                            {
+                                <p class="text-center mt-3" style="color: #FF6B6B;">Vui lòng <a href="/Identity/Account/Login" style="color: #00A693; text-decoration: underline;">đăng nhập</a> để gửi tin nhắn.</p>
+                            }
                         </div>
                     </div>
-
-                    @if (ViewBag.SuccessMessage != null)
-                    {
-                        <div class="message-success mt-4 text-center">@ViewBag.SuccessMessage</div>
-                    }
-                    @if (ViewBag.ErrorMessage != null)
-                    {
-                        <div class="message-error mt-4 text-center">@ViewBag.ErrorMessage</div>
-                    }
                 </form>
+
+                @* Add a link to MyMessages page only for authenticated users *@
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="text-center mt-4">
+                        <a href="@Url.Action("MyMessages", "Contact")" class="custom-btn custom-btn-primary" style="background-color: #3498db; border-color: #3498db;">
+                            <i class="fas fa-history mr-2"></i> Xem lịch sử tin nhắn của bạn
+                        </a>
+                    </div>
+                }
+
             </div>
         </div>
     </div>
 </section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

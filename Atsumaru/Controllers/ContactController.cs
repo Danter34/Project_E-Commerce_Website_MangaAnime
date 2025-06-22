@@ -1,10 +1,16 @@
 ﻿using Atsumaru.Data;
 using Atsumaru.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore; // Add this for .Where and .ToListAsync
+using Microsoft.EntityFrameworkCore;
+using System.Security.Claims; // Cần thiết để truy cập Claims
+using Microsoft.AspNetCore.Authorization; // Cần thiết cho thuộc tính [Authorize]
 
 namespace Atsumaru.Controllers
 {
+    // Áp dụng [Authorize] cho toàn bộ controller hoặc chỉ cho các action cần thiết.
+    // Nếu bạn muốn người dùng phải đăng nhập để truy cập bất kỳ chức năng nào của ContactController,
+    // hãy đặt [Authorize] ở đây.
+    // [Authorize]
     public class ContactController : Controller
     {
         private readonly AtsumaruContextDB _context;
@@ -17,76 +23,92 @@ namespace Atsumaru.Controllers
         // GET: Hiển thị form liên hệ ban đầu
         public IActionResult Index()
         {
-            // Truyền một đối tượng Contact trống để hiển thị form
-            return View(new Contact());
+            
+            // bạn có thể lấy nó ở đây và gán vào model.
+            var model = new Contact();
+            if (User.Identity.IsAuthenticated)
+            {
+                
+                model.Name = User.Identity.Name;
+            }
+            return View(model);
         }
 
-        // POST: Xử lý gửi tin nhắn mới
+
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize] // Chỉ người dùng đã xác thực mới có thể gửi tin nhắn
         public async Task<IActionResult> Send(Contact model)
         {
+           
+            // đã thêm email vào Claims của người dùng khi họ đăng nhập.
+            var userEmail = User.FindFirstValue(ClaimTypes.Email);
+
+            if (string.IsNullOrEmpty(userEmail))
+            {
+                
+                // nhưng là một biện pháp bảo vệ tốt.
+                ViewBag.ErrorMessage = "Không thể xác định email của bạn. Vui lòng đăng nhập lại.";
+                ModelState.Clear(); // Xóa trạng thái của model để form được reset
+                return View("Index", new Contact());
+            }
+
+            
+            ModelState.Remove("Email");
+
             if (ModelState.IsValid)
             {
                 var contactMessage = new Contact
                 {
-                    Name = model.Name,
-                    Email = model.Email,
+                    Name = model.Name, // Lấy tên từ form người dùng nhập
+                    Email = userEmail, // Tự động gán email của người dùng đang đăng nhập
                     Message = model.Message,
                     SentDate = DateTime.Now,
-                    AdminReply = null, // Đảm bảo các trường này là null khi tạo tin nhắn mới
+                    AdminReply = null, // Đảm bảo null cho tin nhắn mới
                     ReplyDate = null
                 };
 
-                _context.ContactMessages.Add(contactMessage); // Đã sửa từ ContactMessages sang Contacts
+                _context.ContactMessages.Add(contactMessage);
                 await _context.SaveChangesAsync();
 
                 ViewBag.SuccessMessage = "Tin nhắn của bạn đã được gửi thành công. Chúng tôi sẽ liên hệ lại với bạn sớm nhất!";
 
-                ModelState.Clear();
+                ModelState.Clear(); // Xóa trạng thái của model để form được reset
                 return View("Index", new Contact()); // Quay lại trang Index với form trống
             }
 
             ViewBag.ErrorMessage = "Vui lòng kiểm tra lại thông tin bạn đã nhập.";
-            return View("Index", model); // Quay lại trang Index với lỗi
+            return View("Index", model); // Quay lại trang Index với lỗi validation
         }
 
-        // GET: Hiển thị trang để người dùng nhập email để tìm tin nhắn của họ
-        public IActionResult MyMessages()
+        [Authorize] // Chỉ người dùng đã xác thực mới có thể xem tin nhắn của họ
+        public async Task<IActionResult> MyMessages()
         {
-            return View(); // Trả về một View trống để nhập email
-        }
+       
+            var userEmail = User.FindFirstValue(ClaimTypes.Email);
 
-        // POST: Xử lý tìm kiếm tin nhắn dựa trên email và hiển thị phản hồi
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> MyMessages(string emailToSearch)
-        {
-            if (string.IsNullOrWhiteSpace(emailToSearch))
+            if (string.IsNullOrEmpty(userEmail))
             {
-                ModelState.AddModelError("emailToSearch", "Vui lòng nhập địa chỉ email của bạn.");
-                return View();
+
+                // hiển thị thông báo lỗi.
+                ViewBag.NoMessagesMessage = "Không thể tìm thấy email người dùng. Vui lòng đăng nhập lại.";
+                return View(new List<Contact>()); // Trả về danh sách rỗng
             }
 
-            // Tìm tất cả tin nhắn liên quan đến email này
+  
             var userContacts = await _context.ContactMessages
-                                             .Where(c => c.Email == emailToSearch)
+                                             .Where(c => c.Email.ToLower() == userEmail.ToLower())
                                              .OrderByDescending(c => c.SentDate)
                                              .ToListAsync();
 
             if (!userContacts.Any())
             {
-                ViewBag.NoMessagesMessage = "Không tìm thấy tin nhắn nào với địa chỉ email này. Vui lòng kiểm tra lại email hoặc gửi tin nhắn mới.";
+
+                ViewBag.NoMessagesMessage = "Bạn chưa gửi tin nhắn nào. Hãy gửi tin nhắn đầu tiên của bạn!";
             }
 
-            // Trả về view với danh sách tin nhắn tìm được
+
             return View(userContacts);
         }
-
-        // Bạn có thể giữ hoặc bỏ Confirmation() nếu bạn không dùng nó
-        // public IActionResult Confirmation()
-        // {
-        //     return View();
-        // }
     }
 }

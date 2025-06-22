@@ -1,38 +1,233 @@
-﻿@model Delivery
-    <div class="checkout-container">
+﻿@model Atsumaru.Models.Delivery
+
+<style>
+    /* Styling cơ bản cho các phần mới */
+    .payment-details {
+        margin-top: 15px;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #333;
+        display: none; /* Ẩn theo mặc định */
+    }
+
+        .payment-details h4 {
+            margin-top: 0;
+            color: #fff;
+        }
+
+        .payment-details p {
+            margin-bottom: 5px;
+            color: #ffff;
+        }
+
+        .payment-details img {
+            max-width: 150px;
+            height: auto;
+            display: block;
+            margin-top: 10px;
+            border: 1px solid #eee;
+        }
+
+    /* Phong cách cho thông báo lỗi validation */
+    .text-danger {
+        color: #dc3545;
+        font-size: 0.875em;
+        margin-top: 5px;
+    }
+
+    input.input-validation-error, select.input-validation-error, textarea.input-validation-error {
+        border-color: #dc3545;
+    }
+
+    /* Ẩn hộp phương thức vận chuyển theo mặc định */
+    .dv-box {
+        display: none;
+    }
+</style>
+
+<div class="checkout-container">
     <form id="checkoutForm" asp-action="Checkout" method="post" role="form">
         <div class="wr">
             <h3>Thông tin giao hàng</h3>
             <div class="info-box">
-                <div class="name"><input asp-for="Name" type="text" placeholder="Họ và tên" name="Name" required></div>
+                <div class="name">
+                    <input asp-for="Name" type="text" placeholder="Họ và tên" name="Name" required>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
                 <div class="email-sdt">
-                    <input asp-for="Email" type="email" placeholder="Email" name="Email" required>
+                   
                     <input asp-for="Phone" type="tel" placeholder="Số điện thoại" name="Phone" required>
+                    <span asp-validation-for="Phone" class="text-danger"></span>
                 </div>
             </div>
-            <div class="deliver-box">
-                <div class="chbox1"><input type="checkbox" name="DeliveryOption" value="HomeDelivery"> Giao hàng tận nơi</div>
-                <div class="add">
-                    <input asp-for="Address" type="text" placeholder="Địa chỉ" name="Address" required>
-                </div>
-                <div class="chbox2"><input type="checkbox" name="DeliveryOption" value="StorePickup"> Nhận tại cửa hàng</div>
-            </div>
+
             <h3>Phương thức vận chuyển</h3>
-            <div class="dv-box">
-                <div class="chbox3"><input type="checkbox" name="ShippingMethodOption" value="Standard" data-shipping-cost="20000"> Giao hàng thường (3-4 ngày)</div>
-                <div class="chbox4"><input type="checkbox" name="ShippingMethodOption" value="Express" data-shipping-cost="30000"> Giao hàng nhanh (1-2 ngày) </div>
-                <div class="chbox5"><input type="checkbox" name="ShippingMethodOption" value="Flash" data-shipping-cost="40000"> Giao hoả tốc </div>
+            <div class="deliver-box">
+                @* Radio button cho lựa chọn giao hàng *@
+                <div class="chbox1">
+                    <input type="radio" id="homeDelivery" name="SelectedDeliveryOption" value="HomeDelivery" checked>
+                    <label for="homeDelivery">Giao hàng tận nơi</label>
+                </div>
+                <div class="add" id="addressInputContainer">
+                    <input asp-for="Address" type="text" placeholder="Địa chỉ" name="Address" required>
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="chbox2">
+                    <input type="radio" id="storePickup" name="SelectedDeliveryOption" value="StorePickup">
+                    <label for="storePickup">Nhận tại cửa hàng</label>
+                </div>
             </div>
+
+            @* Container cho các phương thức vận chuyển - sẽ được ẩn/hiện bằng JS *@
+            <div class="dv-box">
+                @* Radio button cho phương thức vận chuyển *@
+                <div class="chbox3">
+                    <input type="radio" id="standardShipping" name="SelectedShippingMethod" value="Standard" data-shipping-cost="20000" checked>
+                    <label for="standardShipping">Giao hàng thường (3-4 ngày) </label>
+                </div>
+                <div class="chbox4">
+                    <input type="radio" id="expressShipping" name="SelectedShippingMethod" value="Express" data-shipping-cost="30000">
+                    <label for="expressShipping">Giao hàng nhanh (1-2 ngày) </label>
+                </div>
+                <div class="chbox5">
+                    <input type="radio" id="flashShipping" name="SelectedShippingMethod" value="Flash" data-shipping-cost="40000">
+                    <label for="flashShipping">Giao hoả tốc </label>
+                </div>
+            </div>
+
             <h3>Phương thức thanh toán</h3>
             <div class="pt-box">
-                <div class="chbox6"><input type="checkbox" name="PaymentMethodOption" value="COD"> Thanh toán khi nhận hàng (COD)</div>
-                <div class="chbox7"><input type="checkbox" name="PaymentMethodOption" value="BankTransfer"> Chuyển khoản ngân hàng</div>
-                <div class="chbox8"><input type="checkbox" name="PaymentMethodOption" value="Momo"> Ví momo</div>
+                @* Radio button cho phương thức thanh toán *@
+                <div class="chbox6">
+                    <input type="radio" id="codPayment" name="SelectedPaymentMethod" value="COD" checked>
+                    <label for="codPayment">Thanh toán khi nhận hàng (COD)</label>
+                </div>
+                <div class="chbox7">
+                    <input type="radio" id="bankTransferPayment" name="SelectedPaymentMethod" value="BankTransfer">
+                    <label for="bankTransferPayment">Chuyển khoản ngân hàng</label>
+                </div>
+                <div class="chbox8">
+                    <input type="radio" id="momoPayment" name="SelectedPaymentMethod" value="Momo">
+                    <label for="momoPayment">Ví Momo</label>
+                </div>
             </div>
-            <input type="hidden" id="selectedPaymentMethod" name="SelectedPaymentMethod" value="">
-            <input type="hidden" id="selectedShippingMethod" name="SelectedShippingMethod" value="">
+
+            @* Phần chi tiết thanh toán (ẩn theo mặc định) *@
+            <div id="bankTransferDetails" class="payment-details">
+                <h4>Thông tin chuyển khoản ngân hàng</h4>
+                <div style="display:flex;">
+                    <p><strong>Ngân hàng:</strong> Vietinbank</p>
+                    <img style=" margin-top: 15px; margin-left:5px; border: none; width:20px;height:20px;" src="https://cdn.haitrieu.com/wp-content/uploads/2022/01/Logo-VietinBank-CTG-Ori.png" alt="Alternate Text" />
+                </div>
+                <p><strong>Số tài khoản:</strong> 1234567890</p>
+                <p><strong>Tên tài khoản:</strong> Dante</p>
+                <p><strong>Nội dung chuyển khoản:</strong> Tên Đơn Hàng - Tên Đăng nhập của bạn </p>
+                <p class="text-danger">Vui lòng chuyển khoản đúng nội dung để đơn hàng được xử lý nhanh nhất!</p>
+            </div>
+
+            <div id="momoDetails" class="payment-details">
+                <h4>Thông tin thanh toán qua Momo</h4>
+                <p><strong>Tên người nhận:</strong> Dante</p>
+                <p><strong>Số điện thoại:</strong> 089878000</p>
+                <p><strong>Nội dung:</strong>Tên Đơn Hàng - Tên Đăng nhập của bạn</p>
+                <img src="https://homepage.momocdn.net/blogscontents/momo-upload-api-220715103645-637934782053464745.png" alt="Momo QR Code"> @* Đặt ảnh QR code thực tế của bạn vào đây *@
+                <p class="text-danger">Vui lòng quét mã QR hoặc chuyển khoản qua SĐT trên và điền đúng nội dung!</p>
+            </div>
+
+            @* Hiển thị tất cả lỗi validation của model *@
+            <div asp-validation-summary="All" class="text-danger"></div>
 
             <button type="submit">Xác nhận</button>
         </div>
     </form>
 </div>
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const deliveryOptionRadios = document.querySelectorAll('input[name="SelectedDeliveryOption"]');
+            const paymentMethodRadios = document.querySelectorAll('input[name="SelectedPaymentMethod"]');
+
+            const addressInputContainer = document.getElementById('addressInputContainer');
+            const addressInput = document.querySelector('input[name="Address"]');
+            const addressValidationSpan = document.querySelector('span[asp-validation-for="Address"]');
+
+            const bankTransferDetails = document.getElementById('bankTransferDetails');
+            const momoDetails = document.getElementById('momoDetails');
+
+            // Lấy tham chiếu đến container chứa các phương thức vận chuyển
+            const shippingMethodsContainer = document.querySelector('.dv-box');
+            const shippingMethodRadios = document.querySelectorAll('input[name="SelectedShippingMethod"]');
+
+            // Hàm hiển thị/ẩn chi tiết thanh toán dựa trên phương thức đã chọn
+            function togglePaymentDetails() {
+                const selectedPayment = document.querySelector('input[name="SelectedPaymentMethod"]:checked');
+
+                bankTransferDetails.style.display = 'none';
+                momoDetails.style.display = 'none';
+
+                if (selectedPayment) {
+                    if (selectedPayment.value === 'BankTransfer') {
+                        bankTransferDetails.style.display = 'block';
+                    } else if (selectedPayment.value === 'Momo') {
+                        momoDetails.style.display = 'block';
+                    }
+                }
+            }
+
+            // Hàm bật/tắt trường nhập địa chỉ và thuộc tính required
+            function toggleAddressInput() {
+                const selectedDelivery = document.querySelector('input[name="SelectedDeliveryOption"]:checked');
+                if (selectedDelivery && selectedDelivery.value === 'StorePickup') {
+                    addressInputContainer.style.display = 'none';
+                    addressInput.removeAttribute('required');
+                    addressInput.value = ''; // Xóa giá trị địa chỉ nếu không cần
+                    if (addressValidationSpan) {
+                        addressValidationSpan.textContent = ''; // Xóa lỗi validation nếu có
+                    }
+                    addressInput.classList.remove('input-validation-error'); // Xóa class lỗi
+                } else { // HomeDelivery
+                    addressInputContainer.style.display = 'block';
+                    addressInput.setAttribute('required', 'required');
+                }
+            }
+
+            // Hàm bật/tắt các phương thức vận chuyển
+            function toggleShippingMethods() {
+                const selectedDelivery = document.querySelector('input[name="SelectedDeliveryOption"]:checked');
+                if (selectedDelivery && selectedDelivery.value === 'HomeDelivery') {
+                    shippingMethodsContainer.style.display = 'block'; // Hiển thị dv-box
+                    // Đảm bảo có một phương thức vận chuyển được chọn nếu dv-box hiển thị
+                    const currentSelectedShipping = document.querySelector('input[name="SelectedShippingMethod"]:checked');
+                    if (!currentSelectedShipping) {
+                        document.getElementById('standardShipping').checked = true; // Mặc định chọn giao hàng thường
+                    }
+                } else { // StorePickup
+                    shippingMethodsContainer.style.display = 'none'; // Ẩn dv-box
+                    // Bỏ chọn tất cả các phương thức vận chuyển khi chúng bị ẩn
+                    shippingMethodRadios.forEach(radio => radio.checked = false);
+                }
+            }
+
+            // Gắn sự kiện lắng nghe cho các thay đổi
+            paymentMethodRadios.forEach(radio => {
+                radio.addEventListener('change', togglePaymentDetails);
+            });
+
+            deliveryOptionRadios.forEach(radio => {
+                radio.addEventListener('change', () => {
+                    toggleAddressInput();
+                    toggleShippingMethods();
+                });
+            });
+
+            // Gọi các hàm ban đầu khi trang tải để thiết lập trạng thái chính xác
+            togglePaymentDetails();
+            toggleAddressInput();
+            toggleShippingMethods();
+        });
+    </script>
+}

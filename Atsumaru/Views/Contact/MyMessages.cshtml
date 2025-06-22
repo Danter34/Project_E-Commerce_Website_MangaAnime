@@ -1,39 +1,33 @@
 ﻿@model IEnumerable<Atsumaru.Models.Contact>
 
 @{
-    ViewData["Title"] = "Xem Phản hồi của bạn";
+    ViewData["Title"] = "Lịch sử tin nhắn của bạn";
 }
 
+@* Đảm bảo tệp CSS của bạn đã được liên kết chính xác và chứa các style cần thiết *@
 <link rel="stylesheet" href="~/assets/css/mes.css">
 
-
-
 <div class="custom-container">
-    <h1 class="">Xem Phản hồi của bạn</h1>
+    <h1 class="">Lịch sử tin nhắn của bạn</h1>
 
     <div class="custom-row">
         <div class="custom-col-8">
-            <div class="form-wrapper-box">
-                <p class="lead">Nhập địa chỉ email của bạn để xem lịch sử tin nhắn và phản hồi từ quản trị viên.</p>
-                <form asp-action="MyMessages" method="post" class="search-form">
-                    @Html.AntiForgeryToken()
-                    <input type="email" class="form-control" name="emailToSearch" placeholder="Địa chỉ email của bạn" aria-label="Địa chỉ email của bạn" value="@ViewBag.EmailToSearch" />
-                    <button type="submit" class="custom-btn">Tìm kiếm</button>
-                </form>
-                @if (ViewData.ModelState.ContainsKey("emailToSearch") && ViewData.ModelState["emailToSearch"].Errors.Any())
-                {
-                    <div class="text-danger">@ViewData.ModelState["emailToSearch"].Errors.First().ErrorMessage</div>
-                }
-            </div>
+            @* Không còn form nhập email tìm kiếm nữa *@
 
+            @* Hiển thị thông báo nếu không có tin nhắn hoặc có lỗi *@
             @if (ViewBag.NoMessagesMessage != null)
             {
                 <div class="custom-alert alert-warning-custom">
                     @ViewBag.NoMessagesMessage
                 </div>
+                <p class="text-center mt-4">
+                    <a href="@Url.Action("Index", "Contact")" class="custom-btn" style="background-color: #00A693; border-color: #00A693;">
+                        Gửi tin nhắn mới
+                    </a>
+                </p>
             }
-
-            @if (Model != null && Model.Any())
+            @* Hiển thị tin nhắn nếu Model không rỗng và có dữ liệu *@
+            else if (Model != null && Model.Any())
             {
                 <h3 class="">Các tin nhắn của bạn (@Model.Count()):</h3>
                 @foreach (var contact in Model)
@@ -59,6 +53,23 @@
                         }
                     </div>
                 }
+                <p class="text-center mt-4">
+                    <a href="@Url.Action("Index", "Contact")" class="custom-btn" style="background-color: #00A693; border-color: #00A693;">
+                        Gửi tin nhắn mới
+                    </a>
+                </p>
+            }
+            @* Trường hợp không có tin nhắn và không có thông báo đặc biệt (ví dụ: lần đầu truy cập của người dùng mới) *@
+            else
+            {
+                <div class="custom-alert alert-warning-custom">
+                    Bạn chưa gửi tin nhắn nào.
+                </div>
+                <p class="text-center mt-4">
+                    <a href="@Url.Action("Index", "Contact")" class="custom-btn" style="background-color: #00A693; border-color: #00A693;">
+                        Gửi tin nhắn đầu tiên của bạn!
+                    </a>
+                </p>
             }
         </div>
     </div>
